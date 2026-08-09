@@ -1,0 +1,167 @@
+/* ==UserStyle==
+@name         Youtube Caramel Mobile
+@namespace    ytc_rb
+@version      1.1.0
+@author       royalblue
+@license      CC BY
+@homepageURL https://userstyles.world/style/24650
+==/UserStyle== */
+
+@-moz-document url-prefix(https://m.youtube.com/) {
+  html {
+    --ytc-col-text-primary: #F2EFEA;
+    --ytc-col-text-secondary: #C3C7D1;
+    --ytc-background: #161925;
+    --ytc-accent-background: rgb(15, 18, 27);
+    --ytc-accent-cyan: #7CB7FF;
+    --ytc-accent-magenta: #C50ED2;
+    background: var(--ytc-background) !important;
+    backdrop-filter: none !important;
+  }
+
+  html { scrollbar-color: #ffffff50 var(--ytc-background);  }
+  html::-webkit-scrollbar-track { background: var(--ytc-background) !important; }
+  :is(html::-webkit-scrollbar-thumb, html::-webkit-scrollbar-thumb:hover) { background: #ffffff50 !important; }
+
+  img { filter: none !important; }
+  .ytProgressBarLineProgressBarPlayed,
+  .thumbnail-overlay-resume-playback-progress {
+    background: linear-gradient(to right, var(--ytc-accent-magenta), var(--ytc-accent-cyan)) !important;
+  }
+  .ytProgressBarPlayheadProgressBarPlayheadDot { background: var(--ytc-accent-cyan) !important; }
+
+  :is(ytm-mobile-topbar-renderer.frosted-glass, .mobile-topbar-header-background, .mobile-topbar-header[data-mode="searching"], ytm-mobile-topbar-renderer:not([ambient-topbar]), .mobile-topbar-header[data-mode="watch"], .setting-single-option-menu-header, .sign-in-header),
+  header.ghost-header, ytm-pivot-bar-renderer,
+  ytm-feed-filter-chip-bar-renderer.chip-bar:not(.channel-page-grid-header ytm-feed-filter-chip-bar-renderer.chip-bar),
+  .YtmChannelListSubMenuRendererHost,
+  ytm-pivot-bar-renderer.frosted-glass,
+  .ytSpecBottomSheetLayoutContainer,
+  .drawer-layout,
+  .menu-content,
+  .yt-spec-dialog-layout,
+  .engagement-panel-container,
+  ytm-playlist-panel-entry-point,
+  .ytSearchboxComponentMweb .ytSearchboxComponentSuggestionsContainer,
+  .universal-watch-card-toggle-button,
+  .pageHeaderRendererHost, ytm-single-column-browse-results-renderer.modern-tabs .single-column-browse-results-tab-bar,
+  .mandatory-consent-v2-kickin,
+  .modernized-nudge .feed-nudge-content-wrapper,
+  .enforcementMessageViewModelHost,
+  .ytSpecDialogLayoutHost {
+    background: var(--ytc-accent-background) !important;
+  }
+  
+  .playerInterstitialRendererScrim { background: linear-gradient(to bottom,var(--ytc-background) 0,var(--ytc-accent-background) 75%,rgba(0,0,0,.6) 100%) !important; }
+
+  .unified-share-url-input {
+    background: var(--ytc-background) !important;
+    color: var(--ytc-accent-magenta) !important;
+  }
+
+  .yt-shelf-header-layout__title, .slim-video-information-title, .promo-title, .title:not(input, .search-bar-text), ytm-reel-shelf-renderer .reel-shelf-title {
+    color: var(--ytc-accent-magenta) !important;
+  }
+
+  .ytSpecButtonShapeNextMono.ytSpecButtonShapeNextFilled,
+  .ytSpecButtonShapeNextOverlay.ytSpecButtonShapeNextFilled {
+    background: #c00 !important;
+    color: #fff !important;
+    transition: 350ms !important;
+    background-size: 200% auto !important;
+  }
+  .ytSpecButtonShapeNextMono.ytSpecButtonShapeNextFilled:hover,
+  .ytSpecButtonShapeNextOverlay.ytSpecButtonShapeNextFilled:hover {
+    background-image: linear-gradient(to right, #c00 40%, var(--ytc-accent-magenta)  51%, var(--ytc-accent-cyan)  100%) !important;
+    background-position: right center !important;
+  }
+
+  .ytSpecButtonShapeNextMono.ytSpecButtonShapeNextFilled {
+    position: relative !important;
+    &::before {
+      content: "";
+      position: absolute;
+      width: 100%; height: 100%;
+      background: #c00;
+      z-index: 1;
+      background-size: 200% auto;
+      transition: 0.3s;
+    }
+    &:hover::before {
+      background-image: linear-gradient(to right, #c00 40%, var(--ytc-accent-magenta)  51%, var(--ytc-accent-cyan)  100%) !important;
+      background-position: right center !important;
+      z-index: 1;
+    }
+  }
+
+  .channel-page-grid-header ytm-feed-filter-chip-bar-renderer.chip-bar,
+  .ytSearchboxComponentMweb .ytSearchboxComponentVoiceSearchWrapper, .mobile-topbar-header-voice-search-button
+  .shortsLockupViewModelHostInlineMetadataMediumScrim, .shortsLockupViewModelHostInlineMetadata,
+  ytm-info-panel-container-renderer[background="INFO_PANEL_CONTAINER_BACKGROUND_SYSTEM"] {
+    background: transparent !important;
+  }
+
+  .yt-spec-bottom-sheet-layout__bottom-sheet-layout-header-wrapper { border-color: var(--ytc-accent-background) !important; }
+}
+
+@-moz-document url-prefix(https://m.youtube.com/) {
+  .video-thumbnail-container-large.rounded-thumbnail,
+  .stacked,
+  .ytCollectionsStackCollectionStack1Large, .ytCollectionsStackCollectionStack2,
+  .ytThumbnailViewModelLarge,
+  .ytCollectionsStackCollectionStack1Medium,
+  .ytThumbnailViewModelSmall, .ytCollectionsStackCollectionStack1Small,
+  .YtmCompactInfocardRendererHost ytm-media-lockup-renderer :is(.ytm-media-lockup-thumbnail-container, img),
+  .ytwFactoidRendererColorSampledHost,
+  .unified-share-url-input,
+  .video-thumbnail-container-compact-rounded,
+  .ytSpecTouchFeedbackShapeStroke, .ytSpecTouchFeedbackShapeFill,
+  .ghost-video-thumbnail-container-large,
+  .shortsLockupViewModelHostThumbnailParentContainerRounded,
+  .ytThumbnailViewModelMedium,
+  .ytwPivotButtonViewModelHostImage,
+  .ytmBackstageImageRendererHost,
+  :is(.yt-spec-button-shape-next--size-m, .animated-subscribe-content-container),
+  .yt-spec-button-shape-next--size-s,
+  .yt-spec-button-shape-next--size-l,
+  .yt-list-item-view-model__container,
+  :is(.ytVideoMetadataCarouselViewModelHost,
+   .ytCommentInputBoxCarouselItemViewModelInputBox, .YtmCommentSimpleboxRendererPlaceholder,
+  .engagement-panel-container, .expandable-video-description-body-main, .ytmFactoidRendererColorSampledFactoid),
+  .ytImageBannerViewModelInset,
+  .menu-content.rounded-container,
+  .dialog.modern-dialog-layout,
+  .ytSpecBottomSheetLayoutContainer,
+  .ytPlayerStoryboardStoryboardImageWrapper,
+  ytm-playlist-panel-entry-point,
+  .ytSearchboxComponentMweb .ytSearchboxComponentInputBox, .search-bar,
+  ytm-watch-card-rich-header-renderer.rounded-container,
+  .ytSearchboxComponentSearchButton,
+  .ytSearchboxComponentMweb .ytSearchboxComponentVoiceSearchWrapper, .mobile-topbar-header-voice-search-button,
+  ytm-factoid-renderer .actoidf,
+  .ytVideoAttributeViewModelImageLarge, .ytVideoAttributeViewModelHeroSection,
+  .yt-video-attribute-view-model--container-card, .ytwTranscriptSegmentViewModelTimestamp,
+  .modernized-nudge .feed-nudge-content-wrapper,
+  .search-bar-entry-point-button,
+  :is(.ytSpecButtonShapeNextSizeM, .ytwAnimatedSubscribeButtonContentContainer), .ytSpecButtonShapeNextSizeS,
+  c3-toast,
+  .enforcementMessageViewModelHeaderImage {
+    border-radius: 0px !important;
+  }
+
+  .player-controls-middle-core-buttons :is(.player-middle-controls-prev-next-visible-area, .player-control-play-pause-icon, .icon-button.endscreen-replay-button),
+  .ytwPlayerTimeDisplayPill, .player-bottom-controls-fullscreen-icon-visible-area,
+  .action-menu-engagement-buttons-wrapper, .ytmFullscreenRelatedVideosEntryPointViewModelButton {
+    border-radius: 4px !important;
+  }
+
+  .ytSpecButtonShapeNextMono.ytSpecButtonShapeNextTonal {
+    position: relative !important;
+    &::before {
+      content: "";
+      position: absolute;
+      width: 100%; height: 100%;
+      background: var(--ytc-background);
+      z-index: 1;
+    }
+  }
+}
