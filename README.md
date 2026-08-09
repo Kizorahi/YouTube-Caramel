@@ -3,5 +3,7 @@
 Тот самый стиль [Youtube Sweet](https://github.com/nstgeorge/youtube-sweet)
 Тема для Firefox [Sweet-Dark](https://addons.mozilla.org/firefox/addon/sweet-dark/)
 
+### Код я разделил на 2 части. 1 часть это просто цвета. Вторая часть с небольшими изменениями в интерфейсе, и те самые нулевые закругления.
+
 # Скриншоты
 ![ytc](images/1.png)
