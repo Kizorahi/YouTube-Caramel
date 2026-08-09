@@ -7,3 +7,4 @@
 
 # Скриншоты
 ![ytc](images/1.png)
+![ytc](images/2.png)
