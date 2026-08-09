@@ -7,5 +7,4 @@
 
 <h1>Скриншоты</h1>
 <img src="images/1.png">
-![ytc](images/1.png)
-![ytc](images/2.png)
+<img src="images/2.png">
