@@ -2,7 +2,7 @@
 @name         YouTube Caramel
 @namespace    ytc_rb
 @author       royalblue
-@version      1.3.1
+@version      1.3.2
 @license      CC BY
 @homepageURL https://userstyles.world/style/24582
 @supportURL https://t.me/glass_of_rain_water
@@ -39,10 +39,20 @@
   .ytSpecButtonShapeNextMono.ytSpecButtonShapeNextText:hover {
     background: transparent !important;
   }
-
-  #secondary.ytd-watch-flexy { width: 426px !important; }
+  
+  ytd-watch-flexy[split-scroll]:not([fixed-panel-watch-next])[fixed-panel-expanded] #secondary-inner.ytd-watch-flexy {
+    --ytd-watch-flexy-sidebar-width: 410px !important;
+  }
+  ytd-watch-flexy[split-scroll]:not([fixed-panel-watch-next])[fixed-panel-expanded][fixed-panel-expanded] #columns.ytd-watch-flexy::after {
+    --ytd-watch-flexy-sidebar-width: 410px !important;
+  }
+  
+  #secondary.ytd-watch-flexy:has(#playlist[collapsed]) { width: 410px !important; } 
+ 
   #secondary.ytd-watch-flexy .ytLockupViewModelContentImage { width: 185px !important; }
-
+  
+ 
+  
  
   html[dark], html[dark] ytd-browse, ytd-watch, html[dark] .ytd-searchbox, html[dark] ytd-app, ytd-watch-flexy, html[dark] #columns.ytd-watch-flexy, html[dark] ytd-button-renderer.yt-horizontal-list-renderer.arrow, html[dark] ytd-multi-page-menu-renderer,
   html[dark] #home-container-skeleton,
@@ -50,7 +60,8 @@
   html[dark] ytd-masthead.dark .masthead-skeleton-icon,
   html[dark] #home-chips,
   html[dark] ytd-feed-filter-chip-bar-renderer[frosted-glass-mode="with-chipbar"] #chips-wrapper.ytd-feed-filter-chip-bar-renderer,
-  html[dark] ytd-feed-filter-chip-bar-renderer[component-style="FEED_FILTER_CHIP_BAR_STYLE_TYPE_CHANNEL_PAGE_GRID"] #chips-wrapper.ytd-feed-filter-chip-bar-renderer, html[dark] ytd-feed-filter-chip-bar-renderer[component-style="FEED_FILTER_CHIP_BAR_STYLE_TYPE_HASHTAG_LANDING_PAGE"] #chips-wrapper.ytd-feed-filter-chip-bar-renderer {
+  .ytItemSectionRendererStickyHeader,
+  html[dark] ytd-tabbed-page-header[remove-background-color] #tabs-container.ytd-tabbed-page-header{
     background-color: var(--ytc-background) !important;
   }
 
