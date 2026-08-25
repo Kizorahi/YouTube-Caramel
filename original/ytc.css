@@ -29,9 +29,28 @@
     background: transparent !important;
   }
 
-  #secondary.ytd-watch-flexy { width: 426px !important; } /* боковое меню от плеера с рекомендациями */
-  #secondary.ytd-watch-flexy .ytLockupViewModelContentImage { width: 185px !important; } /* миниатюры боковое меню от плеера */
 
+/*   ytd-playlist-panel-renderer:not([collapsed]) {
+    position: fixed !important;
+    top: 67px !important;
+    right: 0% !important;
+    width: 426px !important;
+  } */
+  
+  ytd-watch-flexy[split-scroll]:not([fixed-panel-watch-next])[fixed-panel-expanded] #secondary-inner.ytd-watch-flexy {
+    --ytd-watch-flexy-sidebar-width: 410px !important;
+  }
+  ytd-watch-flexy[split-scroll]:not([fixed-panel-watch-next])[fixed-panel-expanded][fixed-panel-expanded] #columns.ytd-watch-flexy::after {
+    --ytd-watch-flexy-sidebar-width: 410px !important;
+  }
+  
+  /* боковое меню от плеера с рекомендациями */ /* 426 */
+  #secondary.ytd-watch-flexy:has(#playlist[collapsed]) { width: 410px !important; }
+  /*  миниатюры боковое меню от плеера */
+  #secondary.ytd-watch-flexy .ytLockupViewModelContentImage { width: 185px !important; }
+  
+ 
+  
   /* Основной фон */
   html[dark], html[dark] ytd-browse, ytd-watch, html[dark] .ytd-searchbox, html[dark] ytd-app, ytd-watch-flexy, html[dark] #columns.ytd-watch-flexy, html[dark] ytd-button-renderer.yt-horizontal-list-renderer.arrow, html[dark] ytd-multi-page-menu-renderer,
   html[dark] #home-container-skeleton, /* фон предзагрузки */
@@ -39,7 +58,8 @@
   html[dark] ytd-masthead.dark .masthead-skeleton-icon, /* предзагрузка иконок в шапке */
   html[dark] #home-chips,
   html[dark] ytd-feed-filter-chip-bar-renderer[frosted-glass-mode="with-chipbar"] #chips-wrapper.ytd-feed-filter-chip-bar-renderer,
-  html[dark] ytd-feed-filter-chip-bar-renderer[component-style="FEED_FILTER_CHIP_BAR_STYLE_TYPE_CHANNEL_PAGE_GRID"] #chips-wrapper.ytd-feed-filter-chip-bar-renderer, html[dark] ytd-feed-filter-chip-bar-renderer[component-style="FEED_FILTER_CHIP_BAR_STYLE_TYPE_HASHTAG_LANDING_PAGE"] #chips-wrapper.ytd-feed-filter-chip-bar-renderer /* категории такие на главной и в плейлисте лайков */ {
+  .ytItemSectionRendererStickyHeader, /* категории в плейлиста лайков после скролла */
+  html[dark] ytd-tabbed-page-header[remove-background-color] #tabs-container.ytd-tabbed-page-header /* категории на канале */{
     background-color: var(--ytc-background) !important;
   }
 
