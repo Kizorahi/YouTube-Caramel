@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name         Youtube Caramel Mobile
 @namespace    ytc_rb
-@version      1.1.0
+@version      1.1.1
 @author       royalblue
 @license      CC BY
 @homepageURL https://userstyles.world/style/24650
@@ -47,7 +47,9 @@
   .mandatory-consent-v2-kickin,
   .modernized-nudge .feed-nudge-content-wrapper,
   .enforcementMessageViewModelHost,
-  .ytSpecDialogLayoutHost {
+  .ytSpecDialogLayoutHost,
+  ytm-select,
+  .ytmDrawerLayoutContainerDrawerLayout {
     background: var(--ytc-accent-background) !important;
   }
   
@@ -100,6 +102,8 @@
     background: transparent !important;
   }
 
+  .stacked { border-color: transparent !important; }
+
   .yt-spec-bottom-sheet-layout__bottom-sheet-layout-header-wrapper { border-color: var(--ytc-accent-background) !important; }
 }
 
@@ -107,6 +111,7 @@
   .video-thumbnail-container-large.rounded-thumbnail,
   .stacked,
   .ytCollectionsStackCollectionStack1Large, .ytCollectionsStackCollectionStack2,
+  .video-thumbnail-container-large.thumbnail-cover-rounded,
   .ytThumbnailViewModelLarge,
   .ytCollectionsStackCollectionStack1Medium,
   .ytThumbnailViewModelSmall, .ytCollectionsStackCollectionStack1Small,
@@ -128,6 +133,8 @@
    .ytCommentInputBoxCarouselItemViewModelInputBox, .YtmCommentSimpleboxRendererPlaceholder,
   .engagement-panel-container, .expandable-video-description-body-main, .ytmFactoidRendererColorSampledFactoid),
   .ytImageBannerViewModelInset,
+  ytm-select,
+  .ytPollRendererHostPollChoice,
   .menu-content.rounded-container,
   .dialog.modern-dialog-layout,
   .ytSpecBottomSheetLayoutContainer,
