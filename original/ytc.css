@@ -28,21 +28,9 @@
   .ytSpecButtonShapeNextMono.ytSpecButtonShapeNextText:hover /* кнопка контех меню бок видео. саси жопу ссаная пародия на -tap-highlight */ {
     background: transparent !important;
   }
-
-
-/*   ytd-playlist-panel-renderer:not([collapsed]) {
-    position: fixed !important;
-    top: 67px !important;
-    right: 0% !important;
-    width: 426px !important;
-  } */
   
-  ytd-watch-flexy[split-scroll]:not([fixed-panel-watch-next])[fixed-panel-expanded] #secondary-inner.ytd-watch-flexy {
-    --ytd-watch-flexy-sidebar-width: 410px !important;
-  }
-  ytd-watch-flexy[split-scroll]:not([fixed-panel-watch-next])[fixed-panel-expanded][fixed-panel-expanded] #columns.ytd-watch-flexy::after {
-    --ytd-watch-flexy-sidebar-width: 410px !important;
-  }
+  ytd-watch-flexy[split-scroll]:not([fixed-panel-watch-next])[fixed-panel-expanded] #secondary-inner.ytd-watch-flexy { --ytd-watch-flexy-sidebar-width: 410px !important; }
+  ytd-watch-flexy[split-scroll]:not([fixed-panel-watch-next])[fixed-panel-expanded][fixed-panel-expanded] #columns.ytd-watch-flexy::after { --ytd-watch-flexy-sidebar-width: 410px !important; }
   
   /* боковое меню от плеера с рекомендациями */ /* 426 */
   #secondary.ytd-watch-flexy:has(#playlist[collapsed]) { width: 410px !important; }
@@ -69,7 +57,7 @@
   html[dark] .ytdMiniplayerInfoBarHost, /* миниплеер */
   html[dark] .header.ytd-playlist-panel-renderer, /* Шапка плейлистов */
   html[dark] #guide-content.ytd-app, /* Цвет бокового меню */
-  html[dark] ytd-mini-guide-renderer[frosted-glass], /* скрытое боковое меню */
+  html[dark] ytd-mini-guide-renderer, /* скрытое боковое меню */
   html[dark] #guide-skeleton, /* боковое меню, предзагрузка */
   html[dark] .ytContextualSheetLayoutHost, /* контекстное меню */
   html[dark] ytd-menu-popup-renderer, /* контекстное меню шортсов */
@@ -232,6 +220,8 @@
   #container.ytd-playlist-panel-renderer, /* плейлисты */
   ytd-live-chat-frame#chat, /* блок чата */
   iframe#chatframe, /* закругление фона внутри блока чата */
+  #input-container.yt-live-chat-message-input-renderer, /* ввод в блоке чата */
+  yt-live-chat-icon-toggle-button-renderer.yt-live-chat-message-input-renderer > #button.yt-live-chat-icon-toggle-button-renderer, #fab-container.yt-reaction-control-panel-view-model, /* кнопки рядом с вводом в чате */
   ytd-multi-page-menu-renderer, /* блок уведомлений */
   .ytSearchboxComponentInputBox, /* поиск в шапке */
   .ytSearchboxComponentSearchButton, /* кнопка поиска */
@@ -245,6 +235,7 @@
   ytd-guide-entry-renderer, #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer:hover, yt-interaction.ytd-guide-entry-renderer, #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer:active, /* выбор в боковом меню */
   ytd-mini-guide-entry-renderer, /* скрытое меню */
   .ytImageBannerViewModelInset, /* шапка канала */
+  .ytThumbnailHoverOverlayViewModelStyleButton, /* изменить шапку */
   ytd-backstage-post-renderer[uses-full-lockup], /* записи канала */
   .ytSlimlineSurveyViewModelContainer, /* фигня рекомендации */
   ytd-thumbnail-overlay-toggle-button-renderer, /* кнопки на миниатюрах канала, доб в плейлист, смотреть позже */
