@@ -2,7 +2,7 @@
 @name         YouTube Caramel
 @namespace    ytc_rb
 @author       royalblue
-@version      1.3.2
+@version      1.3.3
 @license      CC BY
 @homepageURL https://userstyles.world/style/24582
 @supportURL https://t.me/glass_of_rain_water
@@ -40,14 +40,11 @@
     background: transparent !important;
   }
   
-  ytd-watch-flexy[split-scroll]:not([fixed-panel-watch-next])[fixed-panel-expanded] #secondary-inner.ytd-watch-flexy {
-    --ytd-watch-flexy-sidebar-width: 410px !important;
-  }
-  ytd-watch-flexy[split-scroll]:not([fixed-panel-watch-next])[fixed-panel-expanded][fixed-panel-expanded] #columns.ytd-watch-flexy::after {
-    --ytd-watch-flexy-sidebar-width: 410px !important;
-  }
+  ytd-watch-flexy[split-scroll]:not([fixed-panel-watch-next])[fixed-panel-expanded] #secondary-inner.ytd-watch-flexy { --ytd-watch-flexy-sidebar-width: 410px !important; }
+  ytd-watch-flexy[split-scroll]:not([fixed-panel-watch-next])[fixed-panel-expanded][fixed-panel-expanded] #columns.ytd-watch-flexy::after { --ytd-watch-flexy-sidebar-width: 410px !important; }
   
-  #secondary.ytd-watch-flexy:has(#playlist[collapsed]) { width: 410px !important; } 
+ 
+  #secondary.ytd-watch-flexy:has(#playlist[collapsed]) { width: 410px !important; }
  
   #secondary.ytd-watch-flexy .ytLockupViewModelContentImage { width: 185px !important; }
   
@@ -71,7 +68,7 @@
   html[dark] .ytdMiniplayerInfoBarHost,
   html[dark] .header.ytd-playlist-panel-renderer,
   html[dark] #guide-content.ytd-app,
-  html[dark] ytd-mini-guide-renderer[frosted-glass],
+  html[dark] ytd-mini-guide-renderer,
   html[dark] #guide-skeleton,
   html[dark] .ytContextualSheetLayoutHost,
   html[dark] ytd-menu-popup-renderer,
@@ -234,6 +231,8 @@
   #container.ytd-playlist-panel-renderer,
   ytd-live-chat-frame#chat,
   iframe#chatframe,
+  #input-container.yt-live-chat-message-input-renderer,
+  yt-live-chat-icon-toggle-button-renderer.yt-live-chat-message-input-renderer > #button.yt-live-chat-icon-toggle-button-renderer, #fab-container.yt-reaction-control-panel-view-model,
   ytd-multi-page-menu-renderer,
   .ytSearchboxComponentInputBox,
   .ytSearchboxComponentSearchButton,
@@ -247,6 +246,7 @@
   ytd-guide-entry-renderer, #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer:hover, yt-interaction.ytd-guide-entry-renderer, #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer:active,
   ytd-mini-guide-entry-renderer,
   .ytImageBannerViewModelInset,
+  .ytThumbnailHoverOverlayViewModelStyleButton,
   ytd-backstage-post-renderer[uses-full-lockup],
   .ytSlimlineSurveyViewModelContainer,
   ytd-thumbnail-overlay-toggle-button-renderer,
