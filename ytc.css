@@ -2,7 +2,7 @@
 @name         YouTube Caramel
 @namespace    ytc_rb
 @author       royalblue
-@version      1.3.3
+@version      1.3.5
 @license      CC BY
 @homepageURL https://userstyles.world/style/24582
 @supportURL https://t.me/glass_of_rain_water
@@ -309,7 +309,11 @@
       z-index: 999;
   }
   
-  ytd-shorts-player-controls *, ytd-shorts-player-controls *:hover::after,
+  .ytdShortsPlayerControlsHost *, ytd-shorts-player-controls.ytd-reel-video-renderer *,
+  ytd-shorts-player-controls.ytd-reel-video-renderer *:hover::after,
+  .ytdShortsPlayerControlsPlayPauseButtonShape:hover::after,
+  .ytdShortsPlayerControlsMenuButton:hover::after,
+  .ytdShortsPlayerControlsFullscreenButtonShape:hover::after,
   .ytdVolumeControlsBackgroundScrimExpandedHoverState::after,
   :is(.ytp-delhi-modern .ytp-play-button, .ytp-delhi-modern.ytp-big-mode .ytp-play-button):hover::after,
   .ytp-delhi-modern :is(.ytp-prev-button, .ytp-next-button,
@@ -324,40 +328,66 @@
     background: transparent !important;
   }
   
-  .ytp-delhi-modern .ytp-chrome-controls .ytp-mute-button .ytp-volume-icon svg {
+  .ytp-delhi-modern .ytp-chrome-controls .ytp-mute-button .ytp-volume-icon svg,
+  .ytdShortsPlayerControlsHost .ytdVolumeControlsMuteIconButton svg,
+  ytd-shorts-player-controls.ytd-reel-video-renderer .ytdVolumeControlsMuteIconButton svg {
     opacity: 0 !important;
   }
 
-  .ytp-volume-area {
+  .ytp-volume-area,
+  .ytdShortsPlayerControlsHost, ytd-shorts-player-controls.ytd-reel-video-renderer {
     --ytc-volume-low: url("data:image/svg+xml,%3Csvg%20viewBox%3D'0%200%2036%2036'%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%3E%3Cpath%20d%3D'M8%2C21%20L12%2C21%20L17%2C26%20L17%2C10%20L12%2C15%20L8%2C15%20L8%2C21%20Z'%20fill%3D'%23fff'%2F%3E%3C%2Fsvg%3E");
     --ytc-volume-mid: url("data:image/svg+xml,%3Csvg%20viewBox%3D'0%200%2036%2036'%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%3E%3Cpath%20d%3D'M8%2C21%20L12%2C21%20L17%2C26%20L17%2C10%20L12%2C15%20L8%2C15%20L8%2C21%20Z%20M19%2C14%20L19%2C22%20C20.48%2C21.32%2021.5%2C19.77%2021.5%2C18%20C21.5%2C16.26%2020.48%2C14.74%2019%2C14%20Z'%20fill%3D'%23fff'%2F%3E%3C%2Fsvg%3E");
     --ytc-volume-high: url('data:image/svg+xml;utf8,<svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><path d="M8,21 L12,21 L17,26 L17,10 L12,15 L8,15 L8,21 Z M19,14 L19,22 C20.48,21.32 21.5,19.77 21.5,18 C21.5,16.26 20.48,14.74 19,14 ZM19,11.29 C21.89,12.15 24,14.83 24,18 C24,21.17 21.89,23.85 19,24.71 L19,26.77 C23.01,25.86 26,22.28 26,18 C26,13.72 23.01,10.14 19,9.23 L19,11.29 Z" fill="%23fff"/></svg>');
     --ytc-volume-muted: url("data:image/svg+xml,%3Csvg%20viewBox%3D'0%200%2036%2036'%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%3E%3Cpath%20d%3D'm%2021.48%2C17.98%20c%200%2C-1.77%20-1.02%2C-3.29%20-2.5%2C-4.03%20v%202.21%20l%202.45%2C2.45%20c%20.03%2C-0.2%20.05%2C-0.41%20.05%2C-0.63%20z%20m%202.5%2C0%20c%200%2C.94%20-0.2%2C1.82%20-0.54%2C2.64%20l%201.51%2C1.51%20c%20.66%2C-1.24%201.03%2C-2.65%201.03%2C-4.15%200%2C-4.28%20-2.99%2C-7.86%20-7%2C-8.76%20v%202.05%20c%202.89%2C.86%205%2C3.54%205%2C6.71%20z%20M%209.25%2C8.98%20l%20-1.27%2C1.26%204.72%2C4.73%20H%207.98%20v%206%20H%2011.98%20l%205%205%20v%20-6.73%20l%204.25%2C4.25%20c%20-0.67%2C.52%20-1.42%2C.93%20-2.25%2C1.18%20v%202.06%20c%201.38%2C-0.31%202.63%2C-0.95%203.69%2C-1.81%20l%202.04%2C2.05%201.27%2C-1.27%20-9%2C-9%20-7.72%2C-7.72%20z%20m%207.72%2C.99%20-2.09%2C2.08%202.09%2C2.09%20V%209.98%20z'%20fill%3D'%23fff'%2F%3E%3C%2Fsvg%3E");
   }
 
-  .ytp-volume-area .ytp-volume-icon {
+  .ytp-volume-area .ytp-volume-icon,
+  :is(.ytdShortsPlayerControlsHost, ytd-shorts-player-controls.ytd-reel-video-renderer) .ytdVolumeControlsBackgroundScrim {
     background-image: var(--ytc-volume-low) !important;
+    background-repeat: no-repeat !important;
   }
 
   .ytp-volume-area:has(.ytp-volume-panel[aria-valuenow^="4"]:not([aria-valuenow="4"])) .ytp-volume-icon,
   .ytp-volume-area:has(.ytp-volume-panel[aria-valuenow^="5"]:not([aria-valuenow="5"])) .ytp-volume-icon,
-  .ytp-volume-area:has(.ytp-volume-panel[aria-valuenow^="6"]:not([aria-valuenow="6"])) .ytp-volume-icon {
+  .ytp-volume-area:has(.ytp-volume-panel[aria-valuenow^="6"]:not([aria-valuenow="6"])) .ytp-volume-icon,
+  :is(.ytdShortsPlayerControlsHost, ytd-shorts-player-controls.ytd-reel-video-renderer):has(.ytdVolumeControlsNativeSlider[aria-valuenow^="4"]:not([aria-valuenow="4"])) .ytdVolumeControlsBackgroundScrim,
+  :is(.ytdShortsPlayerControlsHost, ytd-shorts-player-controls.ytd-reel-video-renderer):has(.ytdVolumeControlsNativeSlider[aria-valuenow^="5"]:not([aria-valuenow="5"])) .ytdVolumeControlsBackgroundScrim,
+  :is(.ytdShortsPlayerControlsHost, ytd-shorts-player-controls.ytd-reel-video-renderer):has(.ytdVolumeControlsNativeSlider[aria-valuenow^="6"]:not([aria-valuenow="6"])) .ytdVolumeControlsBackgroundScrim {
     background-image: var(--ytc-volume-mid) !important;
   }
 
   .ytp-volume-area:has(.ytp-volume-panel[aria-valuenow^="7"]:not([aria-valuenow="7"])) .ytp-volume-icon,
   .ytp-volume-area:has(.ytp-volume-panel[aria-valuenow^="8"]:not([aria-valuenow="8"])) .ytp-volume-icon,
   .ytp-volume-area:has(.ytp-volume-panel[aria-valuenow^="9"]:not([aria-valuenow="9"])) .ytp-volume-icon,
-  .ytp-volume-area:has(.ytp-volume-panel[aria-valuenow="100"]) .ytp-volume-icon {
+  .ytp-volume-area:has(.ytp-volume-panel[aria-valuenow="100"]) .ytp-volume-icon,
+  :is(.ytdShortsPlayerControlsHost, ytd-shorts-player-controls.ytd-reel-video-renderer):has(.ytdVolumeControlsNativeSlider[aria-valuenow^="7"]:not([aria-valuenow="7"])) .ytdVolumeControlsBackgroundScrim,
+  :is(.ytdShortsPlayerControlsHost, ytd-shorts-player-controls.ytd-reel-video-renderer):has(.ytdVolumeControlsNativeSlider[aria-valuenow^="8"]:not([aria-valuenow="8"])) .ytdVolumeControlsBackgroundScrim,
+  :is(.ytdShortsPlayerControlsHost, ytd-shorts-player-controls.ytd-reel-video-renderer):has(.ytdVolumeControlsNativeSlider[aria-valuenow^="9"]:not([aria-valuenow="9"])) .ytdVolumeControlsBackgroundScrim,
+  :is(.ytdShortsPlayerControlsHost, ytd-shorts-player-controls.ytd-reel-video-renderer):has(.ytdVolumeControlsNativeSlider[aria-valuenow="100"]) .ytdVolumeControlsBackgroundScrim {
     background-image: var(--ytc-volume-high) !important;
   }
 
   .ytp-volume-area:has(.ytp-volume-panel[aria-valuenow="0"]) .ytp-volume-icon,
-  .ytp-volume-area:has(.ytp-volume-slider-handle[style*="left: 0px"]) .ytp-volume-icon {
+  .ytp-volume-area:has(.ytp-volume-slider-handle[style*="left: 0px"]) .ytp-volume-icon,
+  :is(.ytdShortsPlayerControlsHost, ytd-shorts-player-controls.ytd-reel-video-renderer):has(.ytdVolumeControlsNativeSlider[aria-valuetext="0% volume muted"]) .ytdVolumeControlsBackgroundScrim {
     background-image: var(--ytc-volume-muted) !important;
   }
   
   .ytp-gradient-bottom { display: block !important; top: auto !important; bottom: 0 !important; }
+  
+  :is(.ytdShortsPlayerControlsHost, ytd-shorts-player-controls.ytd-reel-video-renderer)::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.40) 40%, rgba(0, 0, 0, 0.20) 70%, rgba(0, 0, 0, 0) 100%);
+    -webkit-transition: opacity .25s cubic-bezier(0,0,.2,1);
+    transition: opacity .25s cubic-bezier(0,0,.2,1);
+    pointer-events: none;
+}
   
  
   .ytp-delhi-modern :is(.ytp-chrome-bottom,  .ytp-chrome-controls),
