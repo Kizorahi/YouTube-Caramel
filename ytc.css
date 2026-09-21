@@ -2,11 +2,10 @@
 @name         YouTube Caramel
 @namespace    ytc_rb
 @author       royalblue
-@version      1.3.5
+@version      1.3.7
 @license      CC BY
 @homepageURL https://userstyles.world/style/24582
 @supportURL https://t.me/glass_of_rain_water
-@updateURL https://userstyles.world/api/style/24582.user.css
 ==/UserStyle== */
 
 @-moz-document url-prefix("https://www.youtube.com/") {
@@ -44,7 +43,10 @@
   ytd-watch-flexy[split-scroll]:not([fixed-panel-watch-next])[fixed-panel-expanded][fixed-panel-expanded] #columns.ytd-watch-flexy::after { --ytd-watch-flexy-sidebar-width: 410px !important; }
   
  
-  #secondary.ytd-watch-flexy:has(#playlist[collapsed]) { width: 410px !important; }
+  #secondary.ytd-watch-flexy:has(#playlist[collapsed]) {
+   
+    width: 410px !important;
+  }
  
   #secondary.ytd-watch-flexy .ytLockupViewModelContentImage { width: 185px !important; }
   
@@ -82,7 +84,9 @@
   html[dark] .ytSlimlineSurveyViewModelContainer,
   html[dark] .ytGridShelfViewModelGridShelfBottomButtonContainer,
   html[dark] ytd-carousel-header-renderer,
-  html[dark] #dismissible #background-content {
+  html[dark] #dismissible #background-content,
+  html[dark] .ytp-error,
+  html[dark] .interstitialViewModelModelContainer {
     background: var(--ytc-accent-background) !important;
   }
 
@@ -131,17 +135,22 @@
     border-image: linear-gradient(to right, var(--ytc-accent-magenta), var(--ytc-accent-cyan)) 1 !important;
   }
 
- html[dark] .ytp-swatch-background-color, html[dark] .ytThumbnailOverlayProgressBarHostWatchedProgressBarSegment, html[dark] #progress.ytd-thumbnail-overlay-resume-playback-renderer, 
-  html[dark] .ytProgressBarLineProgressBarPlayed {
+  html[dark] .ytp-swatch-background-color, html[dark] .ytThumbnailOverlayProgressBarHostWatchedProgressBarSegment, 
+  html[dark] .ytProgressBarLineProgressBarPlayed,
+  html[dark] .ytwThumbnailOverlayResumePlaybackRendererThumbnailOverlayResumePlaybackProgress {
     background: linear-gradient(to right, var(--ytc-accent-magenta), var(--ytc-accent-cyan)) !important;
   }
   html[dark] .ytp-scrubber-button.ytp-swatch-background-color, html[dark] .ytProgressBarPlayheadProgressBarPlayheadDot  {
     background: var(--ytc-accent-cyan) !important;
   }
-
-  html[dark] a:is(.ytp-ce-link, .ytp-ce-link:hover, .ytp-ce-link:visited) {
-    color: var(--ytc-accent-cyan) !important;
+  
+  .ytp-chapter-hover-container {
+    background: linear-gradient(to right, var(--ytc-accent-magenta), var(--ytc-accent-cyan)) !important;
+    background-attachment: fixed !important;
+    background-size: cover !important;
   }
+
+ 
 
   html[dark] .ytp-ce-expanding-overlay * { color: var(--ytc-col-text-primary); }
 
@@ -277,7 +286,10 @@
   .ytp-skip-ad-button,
   #statement-banner-content.ytd-statement-banner-renderer, #tile-container.ytd-statement-banner-renderer,
   .ytwTopLandscapeImageLayoutViewModelHostImageHoverOverlayContainer,
-  .ytwCompactLandscapeNoButtonLayoutViewModelHostImageHoverOverlayContainer {
+  .ytwCompactLandscapeNoButtonLayoutViewModelHostImageHoverOverlayContainer,
+  #error-screen.ytd-watch-flexy,
+  .ytMiniGameCardViewModelPortraitCard .ytMiniGameCardViewModelCinematicBackgroundWrapper,
+  .ytMiniAppContainerViewModelContentDesktopContent {
     border-radius: 0px !important;
   }
 
@@ -423,6 +435,8 @@
   .ytSpecButtonShapeNextMono.ytSpecButtonShapeNextFilled::before { border-radius: 0px; }
   
   .yt-mealbar-promo-renderer { display: none !important; }
+  
+  #page-header-banner { padding: 0 !important; }
   
   @media (min-width: 1200px) {
     #ytd-watch-info-text {
