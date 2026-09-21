@@ -33,7 +33,10 @@
   ytd-watch-flexy[split-scroll]:not([fixed-panel-watch-next])[fixed-panel-expanded][fixed-panel-expanded] #columns.ytd-watch-flexy::after { --ytd-watch-flexy-sidebar-width: 410px !important; }
   
   /* боковое меню от плеера с рекомендациями */ /* 426 */
-  #secondary.ytd-watch-flexy:has(#playlist[collapsed]) { width: 410px !important; }
+  #secondary.ytd-watch-flexy:has(#playlist[collapsed]) {
+    /* --ytd-watch-flexy-sidebar-width: 410px !important; */
+    width: 410px !important;
+  }
   /*  миниатюры боковое меню от плеера */
   #secondary.ytd-watch-flexy .ytLockupViewModelContentImage { width: 185px !important; }
   
@@ -71,7 +74,9 @@
   html[dark] .ytSlimlineSurveyViewModelContainer, /* фигня рекомендации */
   html[dark] .ytGridShelfViewModelGridShelfBottomButtonContainer, /* кнопка ещё */
   html[dark] ytd-carousel-header-renderer, /* шапка категории музыка */
-  html[dark] #dismissible #background-content /* блок рекламы на главной */ {
+  html[dark] #dismissible #background-content, /* блок рекламы на главной */
+  html[dark] .ytp-error, /* ошибка видео */
+  html[dark] .interstitialViewModelModelContainer /* Плеер Видео нельзя смотреть в вашей стране */ {
     background: var(--ytc-accent-background) !important;
   }
 
@@ -120,17 +125,24 @@
     border-image: linear-gradient(to right, var(--ytc-accent-magenta), var(--ytc-accent-cyan)) 1 !important;
   }
 
- html[dark] .ytp-swatch-background-color, html[dark] .ytThumbnailOverlayProgressBarHostWatchedProgressBarSegment, html[dark] #progress.ytd-thumbnail-overlay-resume-playback-renderer, /*  ddd2+2 */ 
-  html[dark] .ytProgressBarLineProgressBarPlayed {
+  html[dark] .ytp-swatch-background-color, html[dark] .ytThumbnailOverlayProgressBarHostWatchedProgressBarSegment, /*html[dark] #progress.ytd-thumbnail-overlay-resume-playback-renderer, */ /*  ddd2+2 */ 
+  html[dark] .ytProgressBarLineProgressBarPlayed,
+  html[dark] .ytwThumbnailOverlayResumePlaybackRendererThumbnailOverlayResumePlaybackProgress {
     background: linear-gradient(to right, var(--ytc-accent-magenta), var(--ytc-accent-cyan)) !important;
   }
   html[dark] .ytp-scrubber-button.ytp-swatch-background-color, html[dark] .ytProgressBarPlayheadProgressBarPlayheadDot /* ddd1+3 */  {
     background: var(--ytc-accent-cyan) !important;
   }
-
-  html[dark] a:is(.ytp-ce-link, .ytp-ce-link:hover, .ytp-ce-link:visited) {
-    color: var(--ytc-accent-cyan) !important;
+  
+  .ytp-chapter-hover-container {
+    background: linear-gradient(to right, var(--ytc-accent-magenta), var(--ytc-accent-cyan)) !important;
+    background-attachment: fixed !important;
+    background-size: cover !important;
   }
+
+  /* html[dark] a:is(.ytp-ce-link, .ytp-ce-link:hover, .ytp-ce-link:visited) {
+    color: var(--ytc-accent-cyan) !important;
+  } */
 
   html[dark] .ytp-ce-expanding-overlay * { color: var(--ytc-col-text-primary); }
 
@@ -266,7 +278,10 @@
   .ytp-skip-ad-button, /* кнопка пропуска рекламы */
   #statement-banner-content.ytd-statement-banner-renderer, #tile-container.ytd-statement-banner-renderer, /* банер рекламы на главной + изображение внутри */
   .ytwTopLandscapeImageLayoutViewModelHostImageHoverOverlayContainer, /* миниатюра рекламы на главной */
-  .ytwCompactLandscapeNoButtonLayoutViewModelHostImageHoverOverlayContainer /* реклама в поисковой выдаче */ {
+  .ytwCompactLandscapeNoButtonLayoutViewModelHostImageHoverOverlayContainer, /* реклама в поисковой выдаче */
+  #error-screen.ytd-watch-flexy, /* Плеер Видео нельзя смотреть в вашей стране */
+  .ytMiniGameCardViewModelPortraitCard .ytMiniGameCardViewModelCinematicBackgroundWrapper, /* карточки мини игры */
+  .ytMiniAppContainerViewModelContentDesktopContent /* плеер мини игр */ {
     border-radius: 0px !important;
   }
 
@@ -412,6 +427,8 @@
   .ytSpecButtonShapeNextMono.ytSpecButtonShapeNextFilled::before { border-radius: 0px; }
   
   .yt-mealbar-promo-renderer { display: none !important; } /* yt premium */
+  
+  #page-header-banner { padding: 0 !important; } /* шапка канала */
   
   @media (min-width: 1200px) {
     #ytd-watch-info-text {
