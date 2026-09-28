@@ -2,7 +2,7 @@
 @name         YouTube Caramel
 @namespace    ytc_rb
 @author       royalblue
-@version      1.3.7
+@version      1.3.8
 @license      CC BY
 @homepageURL https://userstyles.world/style/24582
 @supportURL https://t.me/glass_of_rain_water
@@ -41,6 +41,8 @@
   
   ytd-watch-flexy[split-scroll]:not([fixed-panel-watch-next])[fixed-panel-expanded] #secondary-inner.ytd-watch-flexy { --ytd-watch-flexy-sidebar-width: 410px !important; }
   ytd-watch-flexy[split-scroll]:not([fixed-panel-watch-next])[fixed-panel-expanded][fixed-panel-expanded] #columns.ytd-watch-flexy::after { --ytd-watch-flexy-sidebar-width: 410px !important; }
+  
+  #progress.yt-page-navigation-progress { background: linear-gradient(to right, var(--ytc-accent-magenta), var(--ytc-accent-cyan)) !important; }
   
  
   #secondary.ytd-watch-flexy:has(#playlist[collapsed]) {
@@ -143,14 +145,6 @@
   html[dark] .ytp-scrubber-button.ytp-swatch-background-color, html[dark] .ytProgressBarPlayheadProgressBarPlayheadDot  {
     background: var(--ytc-accent-cyan) !important;
   }
-  
-  .ytp-chapter-hover-container {
-    background: linear-gradient(to right, var(--ytc-accent-magenta), var(--ytc-accent-cyan)) !important;
-    background-attachment: fixed !important;
-    background-size: cover !important;
-  }
-
- 
 
   html[dark] .ytp-ce-expanding-overlay * { color: var(--ytc-col-text-primary); }
 
@@ -190,7 +184,7 @@
   } 
 
   #player, #ytd-player,
-  #thumbnail,
+  #thumbnail:not(.ytd-video-description-infocards-section-renderer),
   ytd-thumbnail-overlay-bottom-panel-renderer,
   .yt-badge-shape--thumbnail-badge,
   .ytThumbnailViewModelLarge,
@@ -289,7 +283,9 @@
   .ytwCompactLandscapeNoButtonLayoutViewModelHostImageHoverOverlayContainer,
   #error-screen.ytd-watch-flexy,
   .ytMiniGameCardViewModelPortraitCard .ytMiniGameCardViewModelCinematicBackgroundWrapper,
-  .ytMiniAppContainerViewModelContentDesktopContent {
+  .ytMiniAppContainerViewModelContentDesktopContent,
+  yt-interaction.circular :is(.fill.yt-interaction, .stroke.yt-interaction),
+  yt-icon-button.ytd-masthead:hover {
     border-radius: 0px !important;
   }
 
