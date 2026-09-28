@@ -32,6 +32,8 @@
   ytd-watch-flexy[split-scroll]:not([fixed-panel-watch-next])[fixed-panel-expanded] #secondary-inner.ytd-watch-flexy { --ytd-watch-flexy-sidebar-width: 410px !important; }
   ytd-watch-flexy[split-scroll]:not([fixed-panel-watch-next])[fixed-panel-expanded][fixed-panel-expanded] #columns.ytd-watch-flexy::after { --ytd-watch-flexy-sidebar-width: 410px !important; }
   
+  #progress.yt-page-navigation-progress { background: linear-gradient(to right, var(--ytc-accent-magenta), var(--ytc-accent-cyan)) !important; }
+  
   /* боковое меню от плеера с рекомендациями */ /* 426 */
   #secondary.ytd-watch-flexy:has(#playlist[collapsed]) {
     /* --ytd-watch-flexy-sidebar-width: 410px !important; */
@@ -133,16 +135,6 @@
   html[dark] .ytp-scrubber-button.ytp-swatch-background-color, html[dark] .ytProgressBarPlayheadProgressBarPlayheadDot /* ddd1+3 */  {
     background: var(--ytc-accent-cyan) !important;
   }
-  
-  .ytp-chapter-hover-container {
-    background: linear-gradient(to right, var(--ytc-accent-magenta), var(--ytc-accent-cyan)) !important;
-    background-attachment: fixed !important;
-    background-size: cover !important;
-  }
-
-  /* html[dark] a:is(.ytp-ce-link, .ytp-ce-link:hover, .ytp-ce-link:visited) {
-    color: var(--ytc-accent-cyan) !important;
-  } */
 
   html[dark] .ytp-ce-expanding-overlay * { color: var(--ytc-col-text-primary); }
 
@@ -182,7 +174,7 @@
   } 
 
   #player, #ytd-player,
-  #thumbnail,
+  #thumbnail:not(.ytd-video-description-infocards-section-renderer),
   ytd-thumbnail-overlay-bottom-panel-renderer, /* треки надпись в релизах */
   .yt-badge-shape--thumbnail-badge, /* время видео */
   .ytThumbnailViewModelLarge, /* миниатюры на главной */
@@ -281,7 +273,9 @@
   .ytwCompactLandscapeNoButtonLayoutViewModelHostImageHoverOverlayContainer, /* реклама в поисковой выдаче */
   #error-screen.ytd-watch-flexy, /* Плеер Видео нельзя смотреть в вашей стране */
   .ytMiniGameCardViewModelPortraitCard .ytMiniGameCardViewModelCinematicBackgroundWrapper, /* карточки мини игры */
-  .ytMiniAppContainerViewModelContentDesktopContent /* плеер мини игр */ {
+  .ytMiniAppContainerViewModelContentDesktopContent, /* плеер мини игр */
+  yt-interaction.circular :is(.fill.yt-interaction, .stroke.yt-interaction), /* кнопка уведомлений при нажатии */
+  yt-icon-button.ytd-masthead:hover /* кнопка бокового меню */ {
     border-radius: 0px !important;
   }
 
