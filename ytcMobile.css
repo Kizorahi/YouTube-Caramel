@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name         Youtube Caramel Mobile
 @namespace    ytc_rb
-@version      1.1.1
+@version      1.1.2
 @author       royalblue
 @license      CC BY
 @homepageURL https://userstyles.world/style/24650
@@ -53,8 +53,13 @@
     background: var(--ytc-accent-background) !important;
   }
   
+  .player-cinematics {
+    background: var(--ytc-background) !important;
+  }
+  
   .playerInterstitialRendererScrim { background: linear-gradient(to bottom,var(--ytc-background) 0,var(--ytc-accent-background) 75%,rgba(0,0,0,.6) 100%) !important; }
-
+  .playlist-entrypoint-background-protection { background: linear-gradient(to top,var(--ytc-background) 0,rgba(255,255,255,0) 100%) !important; }
+  
   .unified-share-url-input {
     background: var(--ytc-background) !important;
     color: var(--ytc-accent-magenta) !important;
@@ -151,7 +156,11 @@
   .search-bar-entry-point-button,
   :is(.ytSpecButtonShapeNextSizeM, .ytwAnimatedSubscribeButtonContentContainer), .ytSpecButtonShapeNextSizeS,
   c3-toast,
-  .enforcementMessageViewModelHeaderImage {
+  .enforcementMessageViewModelHeaderImage,
+  .ytListItemViewModelContainer,
+  ytm-single-column-watch-next-results-renderer [section-identifier="related-items"] ytm-notification-multi-action-renderer,
+  .amsterdam-playlist-thumbnail,
+  .ytSpecTouchFeedbackShapeThumbnailSizeMedium .ytSpecTouchFeedbackShapeHoverEffect {
     border-radius: 0px !important;
   }
 
