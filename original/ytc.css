@@ -29,9 +29,10 @@
     background: transparent !important;
   }
   
+  #secondary.ytd-watch-flexy { --ytd-watch-flexy-sidebar-width: 410px !important; }
   ytd-watch-flexy[split-scroll]:not([fixed-panel-watch-next])[fixed-panel-expanded] #secondary-inner.ytd-watch-flexy { --ytd-watch-flexy-sidebar-width: 410px !important; }
   ytd-watch-flexy[split-scroll]:not([fixed-panel-watch-next])[fixed-panel-expanded][fixed-panel-expanded] #columns.ytd-watch-flexy::after { --ytd-watch-flexy-sidebar-width: 410px !important; }
-  
+
   #progress.yt-page-navigation-progress { background: linear-gradient(to right, var(--ytc-accent-magenta), var(--ytc-accent-cyan)) !important; }
   
   /* боковое меню от плеера с рекомендациями */ /* 426 */
@@ -41,9 +42,7 @@
   }
   /*  миниатюры боковое меню от плеера */
   #secondary.ytd-watch-flexy .ytLockupViewModelContentImage { width: 185px !important; }
-  
- 
-  
+
   /* Основной фон */
   html[dark], html[dark] ytd-browse, ytd-watch, html[dark] .ytd-searchbox, html[dark] ytd-app, ytd-watch-flexy, html[dark] #columns.ytd-watch-flexy, html[dark] ytd-button-renderer.yt-horizontal-list-renderer.arrow, html[dark] ytd-multi-page-menu-renderer,
   html[dark] #home-container-skeleton, /* фон предзагрузки */
@@ -96,30 +95,18 @@
     transition: 350ms !important;
     background-size: 200% auto !important;
   }
+  .contribYtLightShapeStaticRimLightSolid {
+    &::before,
+    .contribYtLightShapeStaticWashLightSolid {
+      background: transparent !important;  
+    }
+  }
+  
   html[dark] .ytSpecButtonShapeNextMono.ytSpecButtonShapeNextFilled:hover,
   html[dark] .ytp-sb-subscribe:hover, html[dark] a.ytp-sb-subscribe:hover,
   html[dark] .ytSpecButtonShapeNextOverlay.ytSpecButtonShapeNextFilled:hover {
     background-image: linear-gradient(to right, #c00 40%, var(--ytc-accent-magenta)  51%, var(--ytc-accent-cyan)  100%) !important;
     background-position: right center !important;
-  }
-  /************************************** ------------------------- *********************************/
-  .ytSpecButtonShapeNextMono.ytSpecButtonShapeNextFilled {
-    position: relative !important;
-    &::before {
-      content: "";
-      position: absolute;
-      width: 100%; height: 100%;
-      background: #c00;
-      z-index: 1;
-      background-size: 200% auto;
-      transition: 0.3s;
-      border-radius: 20px;
-    }
-    &:hover::before {
-      background-image: linear-gradient(to right, #c00 40%, var(--ytc-accent-magenta)  51%, var(--ytc-accent-cyan)  100%) !important;
-      background-position: right center !important;
-      z-index: 1;
-    }
   }
   
   html[dark] .ytSearchboxComponentInputBoxDark.ytSearchboxComponentInputBoxHasFocus /* обводка поиска */ {
@@ -406,19 +393,14 @@
   }
 
   .ytp-delhi-modern.ytp-fullscreen-grid-peeking .ytp-overlays-container { display: none !important; } /* скрывает новую панель с лайками */
-  
-  
-  .ytSpecButtonShapeNextMono.ytSpecButtonShapeNextTonal {
-    position: relative !important;
-    &::before {
-      content: "";
-      position: absolute;
-      width: 100%; height: 100%;
-      background: var(--ytc-background);
-      z-index: 1;
+
+  .contribYtLightShapeStaticRimLightTonal { /* прозрачные кнопки */
+    border-radius: 0px !important;
+    &::before,
+    .contribYtLightShapeStaticWashLightTonal {
+      background: transparent !important;
     }
   }
-  .ytSpecButtonShapeNextMono.ytSpecButtonShapeNextFilled::before { border-radius: 0px; }
   
   .yt-mealbar-promo-renderer { display: none !important; } /* yt premium */
   
