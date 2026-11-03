@@ -114,7 +114,7 @@
     border-image: linear-gradient(to right, var(--ytc-accent-magenta), var(--ytc-accent-cyan)) 1 !important;
   }
 
-  html[dark] .ytp-swatch-background-color, html[dark] .ytThumbnailOverlayProgressBarHostWatchedProgressBarSegment, /*html[dark] #progress.ytd-thumbnail-overlay-resume-playback-renderer, */ /*  ddd2+2 */ 
+  html[dark] .ytp-swatch-background-color:where(:not(.ad-interrupting .ytp-play-progress.ytp-swatch-background-color)), html[dark] .ytThumbnailOverlayProgressBarHostWatchedProgressBarSegment, /*html[dark] #progress.ytd-thumbnail-overlay-resume-playback-renderer, */ /*  ddd2+2 */ 
   html[dark] .ytProgressBarLineProgressBarPlayed,
   html[dark] .ytwThumbnailOverlayResumePlaybackRendererThumbnailOverlayResumePlaybackProgress {
     background: linear-gradient(to right, var(--ytc-accent-magenta), var(--ytc-accent-cyan)) !important;
@@ -133,8 +133,6 @@
 }
 
 @-moz-document url-prefix("https://www.youtube.com/") {
-  :root { --yt-button-border-radius: 0px !important; }
-
   * { backdrop-filter: none !important; }
 /* Менюшка под видео */
   #top-row {
@@ -262,7 +260,8 @@
   .ytMiniGameCardViewModelPortraitCard .ytMiniGameCardViewModelCinematicBackgroundWrapper, /* карточки мини игры */
   .ytMiniAppContainerViewModelContentDesktopContent, /* плеер мини игр */
   yt-interaction.circular :is(.fill.yt-interaction, .stroke.yt-interaction), /* кнопка уведомлений при нажатии */
-  yt-icon-button.ytd-masthead:hover /* кнопка бокового меню */ {
+  yt-icon-button.ytd-masthead:hover, /* кнопка бокового меню */
+  ytd-carousel-item-renderer[layout-type="DEFAULT_PROMO_PANEL_RENDERER_LAYOUT_C"] /* кринж */ {
     border-radius: 0px !important;
   }
 
