@@ -2,8 +2,8 @@
 @name         YouTube Caramel
 @namespace    ytc_rb
 @author       royalblue
-@version      1.4.0
-@license      CC BY
+@version      1.4.1
+@license      ISC
 @homepageURL https://userstyles.world/style/24582
 @supportURL https://t.me/glass_of_rain_water
 ==/UserStyle== */
@@ -124,7 +124,7 @@
     border-image: linear-gradient(to right, var(--ytc-accent-magenta), var(--ytc-accent-cyan)) 1 !important;
   }
 
-  html[dark] .ytp-swatch-background-color, html[dark] .ytThumbnailOverlayProgressBarHostWatchedProgressBarSegment, 
+  html[dark] .ytp-swatch-background-color:where(:not(.ad-interrupting .ytp-play-progress.ytp-swatch-background-color)), html[dark] .ytThumbnailOverlayProgressBarHostWatchedProgressBarSegment, 
   html[dark] .ytProgressBarLineProgressBarPlayed,
   html[dark] .ytwThumbnailOverlayResumePlaybackRendererThumbnailOverlayResumePlaybackProgress {
     background: linear-gradient(to right, var(--ytc-accent-magenta), var(--ytc-accent-cyan)) !important;
@@ -143,8 +143,6 @@
 }
 
 @-moz-document url-prefix("https://www.youtube.com/") {
-  :root { --yt-button-border-radius: 0px !important; }
-
   * { backdrop-filter: none !important; }
 
   #top-row {
@@ -272,7 +270,8 @@
   .ytMiniGameCardViewModelPortraitCard .ytMiniGameCardViewModelCinematicBackgroundWrapper,
   .ytMiniAppContainerViewModelContentDesktopContent,
   yt-interaction.circular :is(.fill.yt-interaction, .stroke.yt-interaction),
-  yt-icon-button.ytd-masthead:hover {
+  yt-icon-button.ytd-masthead:hover,
+  ytd-carousel-item-renderer[layout-type="DEFAULT_PROMO_PANEL_RENDERER_LAYOUT_C"] {
     border-radius: 0px !important;
   }
 
