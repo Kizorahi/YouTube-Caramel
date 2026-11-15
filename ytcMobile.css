@@ -1,10 +1,10 @@
 /* ==UserStyle==
 @name         Youtube Caramel Mobile
 @namespace    ytc_rb
-@version      1.1.3
+@version      1.1.4
 @author       royalblue
 @license      ISC
-@homepageURL https://userstyles.world/style/24650
+@homepageURL  https://userstyles.world/style/24650
 ==/UserStyle== */
 
 @-moz-document url-prefix(https://m.youtube.com/) {
@@ -34,7 +34,6 @@
   :is(ytm-mobile-topbar-renderer.frosted-glass, .mobile-topbar-header-background, .mobile-topbar-header[data-mode="searching"], ytm-mobile-topbar-renderer:not([ambient-topbar]), .mobile-topbar-header[data-mode="watch"], .setting-single-option-menu-header, .sign-in-header),
   header.ghost-header, ytm-pivot-bar-renderer,
   ytm-feed-filter-chip-bar-renderer.chip-bar:not(.channel-page-grid-header ytm-feed-filter-chip-bar-renderer.chip-bar),
-  .YtmChannelListSubMenuRendererHost,
   ytm-pivot-bar-renderer.frosted-glass,
   .ytSpecBottomSheetLayoutContainer,
   .drawer-layout,
@@ -54,7 +53,8 @@
     background: var(--ytc-accent-background) !important;
   }
   
-  .player-cinematics {
+  .player-cinematics,
+  .YtmChannelListSubMenuRendererHost {
     background: var(--ytc-background) !important;
   }
   
@@ -146,7 +146,9 @@
   .amsterdam-playlist-thumbnail,
   .ytSpecTouchFeedbackShapeThumbnailSizeMedium .ytSpecTouchFeedbackShapeHoverEffect,
   .ytContentPreviewImageViewModelLargeRoundedImage,
-  .ytCardViewModelCardViewModelInner {
+  .ytCardViewModelCardViewModelInner,
+  .ytVideoAttributeViewModelContainerCard,
+  .ytBadgeShapeThumbnailBadge {
     border-radius: 0px !important;
   }
 
