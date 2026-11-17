@@ -35,54 +35,60 @@
 
   #progress.yt-page-navigation-progress { background: linear-gradient(to right, var(--ytc-accent-magenta), var(--ytc-accent-cyan)) !important; }
   
-  /* боковое меню от плеера с рекомендациями */ /* 426 */
-  #secondary.ytd-watch-flexy:has(#playlist[collapsed]) {
-    /* --ytd-watch-flexy-sidebar-width: 410px !important; */
-    width: 410px !important;
-  }
-  /*  миниатюры боковое меню от плеера */
-  #secondary.ytd-watch-flexy .ytLockupViewModelContentImage { width: 185px !important; }
+
+  #secondary.ytd-watch-flexy:has(#playlist[collapsed]) { width: 410px !important; } /* боковое меню от плеера с рекомендациями */ /* 426 */
+  #secondary.ytd-watch-flexy .ytLockupViewModelContentImage { width: 185px !important; } /*  миниатюры боковое меню от плеера */
 
   /* Основной фон */
-  html[dark], html[dark] ytd-browse, ytd-watch, html[dark] .ytd-searchbox, html[dark] ytd-app, ytd-watch-flexy, html[dark] #columns.ytd-watch-flexy, html[dark] ytd-button-renderer.yt-horizontal-list-renderer.arrow, html[dark] ytd-multi-page-menu-renderer,
-  html[dark] #home-container-skeleton, /* фон предзагрузки */
-  html[dark] .ytp-ce-expanding-overlay-background, .yt-ui-ellipsis, /* при наведении на канал в плеере */
-  html[dark] ytd-masthead.dark .masthead-skeleton-icon, /* предзагрузка иконок в шапке */
-  html[dark] #home-chips,
-  html[dark] ytd-feed-filter-chip-bar-renderer[frosted-glass-mode="with-chipbar"] #chips-wrapper.ytd-feed-filter-chip-bar-renderer,
-  .ytItemSectionRendererStickyHeader, /* категории в плейлиста лайков после скролла */
-  html[dark] ytd-tabbed-page-header[remove-background-color] #tabs-container.ytd-tabbed-page-header /* категории на канале */{
-    background-color: var(--ytc-background) !important;
+
+  html[dark] :is(
+    &,
+    ytd-app,
+    ytd-multi-page-menu-renderer, /* модаль аккаунта */
+    #home-container-skeleton, /* фон предзагрузки */
+    .ytp-ce-expanding-overlay-background, .yt-ui-ellipsis, /* при наведении на канал в плеере */
+    ytd-masthead.dark .masthead-skeleton-icon, /* предзагрузка иконок в шапке */
+    #home-chips,
+    ytd-feed-filter-chip-bar-renderer[frosted-glass-mode="with-chipbar"] #chips-wrapper.ytd-feed-filter-chip-bar-renderer,
+    .ytItemSectionRendererStickyHeader, /* категории в плейлиста лайков после скролла */
+    ytd-tabbed-page-header[remove-background-color] #tabs-container.ytd-tabbed-page-header /* категории на канале */
+  ) {
+    background: var(--ytc-background) !important;
   }
 
   html[dark] #title { color: var(--ytc-accent-magenta) !important; } /* Текст под видео */
 
-  html[dark] #masthead,
-  html[dark] .ytdMiniplayerInfoBarHost, /* миниплеер */
-  html[dark] .header.ytd-playlist-panel-renderer, /* Шапка плейлистов */
-  html[dark] #guide-content.ytd-app, /* Цвет бокового меню */
-  html[dark] ytd-mini-guide-renderer, /* скрытое боковое меню */
-  html[dark] #guide-skeleton, /* боковое меню, предзагрузка */
-  html[dark] .ytContextualSheetLayoutHost, /* контекстное меню */
-  html[dark] ytd-menu-popup-renderer, /* контекстное меню шортсов */
-  html[dark] ytd-engagement-panel-section-list-renderer[dialog] #content.ytd-engagement-panel-section-list-renderer, /* модальное окно */
-  html[dark] #header.ytd-engagement-panel-title-header-renderer, /* модаль */
-  html[dark] tp-yt-paper-dialog, /* модаль */
-  html[dark] yt-confirm-dialog-renderer[dialog], /* модаль авторы трека в описании */
-  html[dark] #home-page-skeleton .skeleton-bg-color, /* предзагрузка миниатюр */
-  html[dark] .watch-skeleton .skeleton-bg-color, /* предзагрузка текста под видео */
-  html[dark] .ytSearchboxComponentSuggestionsContainer, /* поисковые предложения */
-  html[dark] .ytSlimlineSurveyViewModelContainer, /* фигня рекомендации */
-  html[dark] .ytGridShelfViewModelGridShelfBottomButtonContainer, /* кнопка ещё */
-  html[dark] ytd-carousel-header-renderer, /* шапка категории музыка */
-  html[dark] #dismissible #background-content, /* блок рекламы на главной */
-  html[dark] .ytp-error, /* ошибка видео */
-  html[dark] .interstitialViewModelModelContainer /* Плеер Видео нельзя смотреть в вашей стране */ {
+  html[dark] :is(
+    #masthead,
+    .ytdMiniplayerInfoBarHost, /* миниплеер */
+    .header.ytd-playlist-panel-renderer, /* Шапка плейлистов */
+    #guide-content.ytd-app, /* Цвет бокового меню */
+    ytd-mini-guide-renderer, /* скрытое боковое меню */
+    #guide-skeleton, /* боковое меню, предзагрузка */
+    .ytContextualSheetLayoutHost, /* контекстное меню */
+    ytd-menu-popup-renderer, /* контекстное меню шортсов */
+    /* ytd-engagement-panel-section-list-renderer[dialog] #content.ytd-engagement-panel-section-list-renderer, модальное окно */
+    #header.ytd-engagement-panel-title-header-renderer, /* модаль */
+    /*tp-yt-paper-dialog,  модаль */
+    tp-yt-paper-listbox.yt-dropdown-menu, /* контекстное меню сортировки комментариев */
+    yt-confirm-dialog-renderer[dialog], /* модаль авторы трека в описании */
+    #home-page-skeleton .skeleton-bg-color, /* предзагрузка миниатюр */
+    .watch-skeleton .skeleton-bg-color, /* предзагрузка текста под видео */
+    .ytSearchboxComponentSuggestionsContainer, /* поисковые предложения */
+    .ytSlimlineSurveyViewModelContainer, /* фигня рекомендации */
+    .ytGridShelfViewModelGridShelfBottomButtonContainer, /* кнопка ещё */
+    ytd-carousel-header-renderer, /* шапка категории музыка */
+    #dismissible #background-content, /* блок рекламы на главной */
+    .ytp-error, /* ошибка видео */
+    .interstitialViewModelModelContainer /* Плеер Видео нельзя смотреть в вашей стране */
+  ) {
     background: var(--ytc-accent-background) !important;
   }
 
    /* шапка уведомлений*/
-  html[dark] app-drawer #header, html[dark] ytd-active-account-header-renderer, html[dark] ytd-simple-menu-header-renderer {
+  html[dark] :is(
+    app-drawer #header, ytd-active-account-header-renderer, ytd-simple-menu-header-renderer
+  ) {
     background: linear-gradient(to right, var(--ytc-accent-magenta), var(--ytc-accent-cyan)) !important;
     color: var(--ytc-background) !important;
   }
@@ -261,7 +267,10 @@
   .ytMiniAppContainerViewModelContentDesktopContent, /* плеер мини игр */
   yt-interaction.circular :is(.fill.yt-interaction, .stroke.yt-interaction), /* кнопка уведомлений при нажатии */
   yt-icon-button.ytd-masthead:hover, /* кнопка бокового меню */
-  ytd-carousel-item-renderer[layout-type="DEFAULT_PROMO_PANEL_RENDERER_LAYOUT_C"] /* кринж */ {
+  ytd-carousel-item-renderer[layout-type="DEFAULT_PROMO_PANEL_RENDERER_LAYOUT_C"], /* кринж */
+  .ytBadgeShapeThumbnailBadge, /* Новое, длительность */ 
+  .ytwCommentImageAttachmentViewModelImageContainer, /* изображения в комментах */
+  #emojis.ytd-commentbox, #search-panel.yt-emoji-picker-renderer {
     border-radius: 0px !important;
   }
 
