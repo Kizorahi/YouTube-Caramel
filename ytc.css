@@ -2,7 +2,7 @@
 @name         YouTube Caramel
 @namespace    ytc_rb
 @author       royalblue
-@version      1.4.1
+@version      1.4.2
 @license      ISC
 @homepageURL https://userstyles.world/style/24582
 @supportURL https://t.me/glass_of_rain_water
@@ -45,54 +45,60 @@
 
   #progress.yt-page-navigation-progress { background: linear-gradient(to right, var(--ytc-accent-magenta), var(--ytc-accent-cyan)) !important; }
   
- 
-  #secondary.ytd-watch-flexy:has(#playlist[collapsed]) {
-   
-    width: 410px !important;
-  }
- 
+
+  #secondary.ytd-watch-flexy:has(#playlist[collapsed]) { width: 410px !important; }
   #secondary.ytd-watch-flexy .ytLockupViewModelContentImage { width: 185px !important; }
 
  
-  html[dark], html[dark] ytd-browse, ytd-watch, html[dark] .ytd-searchbox, html[dark] ytd-app, ytd-watch-flexy, html[dark] #columns.ytd-watch-flexy, html[dark] ytd-button-renderer.yt-horizontal-list-renderer.arrow, html[dark] ytd-multi-page-menu-renderer,
-  html[dark] #home-container-skeleton,
-  html[dark] .ytp-ce-expanding-overlay-background, .yt-ui-ellipsis,
-  html[dark] ytd-masthead.dark .masthead-skeleton-icon,
-  html[dark] #home-chips,
-  html[dark] ytd-feed-filter-chip-bar-renderer[frosted-glass-mode="with-chipbar"] #chips-wrapper.ytd-feed-filter-chip-bar-renderer,
-  .ytItemSectionRendererStickyHeader,
-  html[dark] ytd-tabbed-page-header[remove-background-color] #tabs-container.ytd-tabbed-page-header{
-    background-color: var(--ytc-background) !important;
+
+  html[dark] :is(
+    &,
+    ytd-app,
+    ytd-multi-page-menu-renderer,
+    #home-container-skeleton,
+    .ytp-ce-expanding-overlay-background, .yt-ui-ellipsis,
+    ytd-masthead.dark .masthead-skeleton-icon,
+    #home-chips,
+    ytd-feed-filter-chip-bar-renderer[frosted-glass-mode="with-chipbar"] #chips-wrapper.ytd-feed-filter-chip-bar-renderer,
+    .ytItemSectionRendererStickyHeader,
+    ytd-tabbed-page-header[remove-background-color] #tabs-container.ytd-tabbed-page-header
+  ) {
+    background: var(--ytc-background) !important;
   }
 
   html[dark] #title { color: var(--ytc-accent-magenta) !important; }
 
-  html[dark] #masthead,
-  html[dark] .ytdMiniplayerInfoBarHost,
-  html[dark] .header.ytd-playlist-panel-renderer,
-  html[dark] #guide-content.ytd-app,
-  html[dark] ytd-mini-guide-renderer,
-  html[dark] #guide-skeleton,
-  html[dark] .ytContextualSheetLayoutHost,
-  html[dark] ytd-menu-popup-renderer,
-  html[dark] ytd-engagement-panel-section-list-renderer[dialog] #content.ytd-engagement-panel-section-list-renderer,
-  html[dark] #header.ytd-engagement-panel-title-header-renderer,
-  html[dark] tp-yt-paper-dialog,
-  html[dark] yt-confirm-dialog-renderer[dialog],
-  html[dark] #home-page-skeleton .skeleton-bg-color,
-  html[dark] .watch-skeleton .skeleton-bg-color,
-  html[dark] .ytSearchboxComponentSuggestionsContainer,
-  html[dark] .ytSlimlineSurveyViewModelContainer,
-  html[dark] .ytGridShelfViewModelGridShelfBottomButtonContainer,
-  html[dark] ytd-carousel-header-renderer,
-  html[dark] #dismissible #background-content,
-  html[dark] .ytp-error,
-  html[dark] .interstitialViewModelModelContainer {
+  html[dark] :is(
+    #masthead,
+    .ytdMiniplayerInfoBarHost,
+    .header.ytd-playlist-panel-renderer,
+    #guide-content.ytd-app,
+    ytd-mini-guide-renderer,
+    #guide-skeleton,
+    .ytContextualSheetLayoutHost,
+    ytd-menu-popup-renderer,
+   
+    #header.ytd-engagement-panel-title-header-renderer,
+   
+    tp-yt-paper-listbox.yt-dropdown-menu,
+    yt-confirm-dialog-renderer[dialog],
+    #home-page-skeleton .skeleton-bg-color,
+    .watch-skeleton .skeleton-bg-color,
+    .ytSearchboxComponentSuggestionsContainer,
+    .ytSlimlineSurveyViewModelContainer,
+    .ytGridShelfViewModelGridShelfBottomButtonContainer,
+    ytd-carousel-header-renderer,
+    #dismissible #background-content,
+    .ytp-error,
+    .interstitialViewModelModelContainer
+  ) {
     background: var(--ytc-accent-background) !important;
   }
 
   
-  html[dark] app-drawer #header, html[dark] ytd-active-account-header-renderer, html[dark] ytd-simple-menu-header-renderer {
+  html[dark] :is(
+    app-drawer #header, ytd-active-account-header-renderer, ytd-simple-menu-header-renderer
+  ) {
     background: linear-gradient(to right, var(--ytc-accent-magenta), var(--ytc-accent-cyan)) !important;
     color: var(--ytc-background) !important;
   }
@@ -271,7 +277,10 @@
   .ytMiniAppContainerViewModelContentDesktopContent,
   yt-interaction.circular :is(.fill.yt-interaction, .stroke.yt-interaction),
   yt-icon-button.ytd-masthead:hover,
-  ytd-carousel-item-renderer[layout-type="DEFAULT_PROMO_PANEL_RENDERER_LAYOUT_C"] {
+  ytd-carousel-item-renderer[layout-type="DEFAULT_PROMO_PANEL_RENDERER_LAYOUT_C"],
+  .ytBadgeShapeThumbnailBadge, 
+  .ytwCommentImageAttachmentViewModelImageContainer,
+  #emojis.ytd-commentbox, #search-panel.yt-emoji-picker-renderer {
     border-radius: 0px !important;
   }
 
