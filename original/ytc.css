@@ -40,7 +40,6 @@
   #secondary.ytd-watch-flexy .ytLockupViewModelContentImage { width: 185px !important; } /*  миниатюры боковое меню от плеера */
 
   /* Основной фон */
-
   html[dark] :is(
     &,
     ytd-app,
@@ -120,20 +119,26 @@
     border-image: linear-gradient(to right, var(--ytc-accent-magenta), var(--ytc-accent-cyan)) 1 !important;
   }
 
-  html[dark] .ytp-swatch-background-color:where(:not(.ad-interrupting .ytp-play-progress.ytp-swatch-background-color)), html[dark] .ytThumbnailOverlayProgressBarHostWatchedProgressBarSegment, /*html[dark] #progress.ytd-thumbnail-overlay-resume-playback-renderer, */ /*  ddd2+2 */ 
-  html[dark] .ytProgressBarLineProgressBarPlayed,
-  html[dark] .ytwThumbnailOverlayResumePlaybackRendererThumbnailOverlayResumePlaybackProgress {
+
+  html[dark] :is( /*  ddd2+2 */ 
+    .ytp-swatch-background-color:where(:not(.ad-interrupting .ytp-play-progress.ytp-swatch-background-color)), .ytThumbnailOverlayProgressBarHostWatchedProgressBarSegment,
+    .ytProgressBarLineProgressBarPlayed,
+    .ytwThumbnailOverlayResumePlaybackRendererThumbnailOverlayResumePlaybackProgress
+  ) {
     background: linear-gradient(to right, var(--ytc-accent-magenta), var(--ytc-accent-cyan)) !important;
   }
+
   html[dark] .ytp-scrubber-button.ytp-swatch-background-color, html[dark] .ytProgressBarPlayheadProgressBarPlayheadDot /* ddd1+3 */  {
     background: var(--ytc-accent-cyan) !important;
   }
+  .ytp-delhi-modern .ytp-progress-list { background: rgba(255, 255, 255, 0.30) !important; } /* возвращает фон шкалы прогресса */
 
   html[dark] .ytp-ce-expanding-overlay * { color: var(--ytc-col-text-primary); }
 
-  .ytp-delhi-modern .ytp-progress-list { background: rgba(255, 255, 255, 0.30) !important; } /* возвращает фон шкалы прогресса */
-
-  html:not([dark]) #container.ytd-masthead, html:not([dark]) ytd-feed-filter-chip-bar-renderer[frosted-glass-mode="with-chipbar"] #chips-wrapper.ytd-feed-filter-chip-bar-renderer { background: #fff !important; }
+  html:not([dark]) :is(
+    #container.ytd-masthead,
+    ytd-feed-filter-chip-bar-renderer[frosted-glass-mode="with-chipbar"] #chips-wrapper.ytd-feed-filter-chip-bar-renderer
+  ) { background: #fff !important; }
   
   .ytSearchboxComponentInputBoxDark { background: transparent !important; }
 }
@@ -287,20 +292,22 @@
 
   ytd-rich-item-renderer[rich-grid-hover-highlight] { box-shadow: none !important; background: transparent !important; }
 
-  html[dark] .ytSegmentedLikeDislikeButtonViewModelSegmentedButtonsWrapper {
+
+  .ytSegmentedLikeDislikeButtonViewModelSegmentedButtonsWrapper {
     position: relative !important;
-  }
-  html[dark] .ytSegmentedLikeDislikeButtonViewModelSegmentedButtonsWrapper::before{
+    &::before {
       content: "";
       position: absolute;
-      bottom: 0;
+      bottom: -5px;
       left: 0;
       width: 100%;
       height: 2.14px;
       background: linear-gradient(to right, var(--ytc-accent-magenta), var(--ytc-accent-cyan));
       pointer-events: none;
       z-index: 999;
+    }
   }
+  .ryd-tooltip { display: none !important; } /* return dislike */
   
   .ytdShortsPlayerControlsHost *, ytd-shorts-player-controls.ytd-reel-video-renderer *, /* кнопки шортсов + старый тоже */
   ytd-shorts-player-controls.ytd-reel-video-renderer *:hover::after,
