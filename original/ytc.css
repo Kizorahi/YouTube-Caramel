@@ -16,12 +16,13 @@
     --t3e41d7b17b187f69: var(--ytc-accent-background) !important;
     --t518e925f61bdcb91: var(--ytc-accent-background) !important; /* фон "в этом видео" эпизодов */
     --yt-live-chat-vem-background-color: var(--ytc-accent-background) !important; /* подписчики отправлять сообщения в чат */
-
-    scrollbar-color: #ffffff50 var(--ytc-background);
+    
+    scrollbar-color: #ffffff50 var(--ytc-background) !important;
+    &::-webkit-scrollbar-track { background: var(--ytc-background) !important; }
+    &::-webkit-scrollbar-thumb {
+      &, &:hover { background: #ffffff50 !important; }
+    }
   }
-
-  html[dark]::-webkit-scrollbar-track { background: var(--ytc-background) !important; }
-  :is(html[dark]::-webkit-scrollbar-thumb, html::-webkit-scrollbar-thumb:hover) { background: #ffffff50 !important; }
 
   html[dark] h2, html[dark] #copyright { color: var(--ytc-col-text-primary) !important; }
   #frosted-glass,
@@ -29,12 +30,7 @@
     background: transparent !important;
   }
   
-  #secondary.ytd-watch-flexy { --ytd-watch-flexy-sidebar-width: 410px !important; }
-  ytd-watch-flexy[split-scroll]:not([fixed-panel-watch-next])[fixed-panel-expanded] #secondary-inner.ytd-watch-flexy { --ytd-watch-flexy-sidebar-width: 410px !important; }
-  ytd-watch-flexy[split-scroll]:not([fixed-panel-watch-next])[fixed-panel-expanded][fixed-panel-expanded] #columns.ytd-watch-flexy::after { --ytd-watch-flexy-sidebar-width: 410px !important; }
-
   #progress.yt-page-navigation-progress { background: linear-gradient(to right, var(--ytc-accent-magenta), var(--ytc-accent-cyan)) !important; }
-  
 
   #secondary.ytd-watch-flexy:has(#playlist[collapsed]) { width: 410px !important; } /* боковое меню от плеера с рекомендациями */ /* 426 */
   #secondary.ytd-watch-flexy .ytLockupViewModelContentImage { width: 185px !important; } /*  миниатюры боковое меню от плеера */
@@ -66,9 +62,7 @@
     #guide-skeleton, /* боковое меню, предзагрузка */
     .ytContextualSheetLayoutHost, /* контекстное меню */
     ytd-menu-popup-renderer, /* контекстное меню шортсов */
-    /* ytd-engagement-panel-section-list-renderer[dialog] #content.ytd-engagement-panel-section-list-renderer, модальное окно */
     #header.ytd-engagement-panel-title-header-renderer, /* модаль */
-    /*tp-yt-paper-dialog,  модаль */
     tp-yt-paper-listbox.yt-dropdown-menu, /* контекстное меню сортировки комментариев */
     yt-confirm-dialog-renderer[dialog], /* модаль авторы трека в описании */
     #home-page-skeleton .skeleton-bg-color, /* предзагрузка миниатюр */
@@ -145,22 +139,20 @@
 
 @-moz-document url-prefix("https://www.youtube.com/") {
   * { backdrop-filter: none !important; }
-/* Менюшка под видео */
-  #top-row {
+
+  #top-row { /* Менюшка под видео */
     flex-direction: column-reverse !important;
     margin-top: -4px !important;
     display: flex !important;
-  }
-  #owner {
-    margin-top: 20px !important;
-    padding-right: 12px !important;
-  }
-  ytd-watch-metadata[action-buttons-update-owner-width] #owner.ytd-watch-metadata {
-    width: 100% !important;
-    justify-content: space-between !important;
-  }
-  ytd-watch-metadata[actions-on-separate-line] #actions.ytd-watch-metadata ytd-menu-renderer.ytd-watch-metadata {
-    justify-content: end !important;
+    #actions.ytd-watch-metadata ytd-menu-renderer.ytd-watch-metadata { justify-content: end !important; }
+    #owner {
+      margin-top: 20px !important;
+      padding-right: 12px !important;
+      &.ytd-watch-metadata {
+        width: 100% !important;
+        justify-content: space-between !important;
+      }
+    }
   }
   
   yt-dropdown-menu { --paper-menu-button-content-border-radius: 0px !important; } /* сортировка, их 2 */
@@ -244,6 +236,7 @@
   .ytVideoAttributeViewModelImageLarge, .ytVideoAttributeViewModelHeroSection, /* изображение трека в описании */
   span.yt-core-attributed-string--link-inherit-color span.yt-core-attributed-string--highlight-text-decorator, /* фон ссылок в описании видео */
   .ytp-tooltip.ytp-preview, .ytp-tooltip-bg, /* предосмотр в плеере */
+  .ytp-tooltip.ytp-tooltip-progress-bar-style .ytp-tooltip-progress-bar-pill, /* предосмотр в плеере время */
   ytd-engagement-panel-section-list-renderer, #thumbnail.ytd-macro-markers-list-item-renderer, /* блок эпизодов */
   .yt-spec-button-shape-next--size-s, /* кнопка показывать комм в эпизодах */
   ytd-live-chat-frame[round-background] #show-hide-button.ytd-live-chat-frame > ytd-button-renderer.ytd-live-chat-frame, /* кнопка показать запись чата */
@@ -301,7 +294,7 @@
       bottom: -5px;
       left: 0;
       width: 100%;
-      height: 2.14px;
+      height: 4px;
       background: linear-gradient(to right, var(--ytc-accent-magenta), var(--ytc-accent-cyan));
       pointer-events: none;
       z-index: 999;
@@ -314,18 +307,14 @@
   .ytdShortsPlayerControlsPlayPauseButtonShape:hover::after,
   .ytdShortsPlayerControlsMenuButton:hover::after,
   .ytdShortsPlayerControlsFullscreenButtonShape:hover::after,
-  .ytdVolumeControlsBackgroundScrimExpandedHoverState::after,
-  :is(.ytp-delhi-modern .ytp-play-button, .ytp-delhi-modern.ytp-big-mode .ytp-play-button):hover::after, /* кнопка паузы */
-  .ytp-delhi-modern :is(.ytp-prev-button, .ytp-next-button, /* кнопки перелистывания */
-  .ytp-chapter-title):hover::after, /* эпизоды */
-  .ytp-delhi-modern .ytp-chrome-controls .ytp-right-controls .ytp-button:hover::before, .ytp-delhi-modern .ytp-chapter-title.ytp-button:active::after, /* кнопки плеера при активации */
-  .ytp-delhi-modern.ytp-delhi-horizontal-volume-controls .ytp-volume-area::after, /* кнопка громкости */
-  .ytp-delhi-modern .ytp-time-wrapper:not(.ytp-miniplayer-ui *)::after, /* кнопка времении плеера */
-  .ytp-delhi-modern.ytp-delhi-modern-compact-controls .ytp-chrome-controls .ytp-play-button,
-  .ytp-delhi-modern.ytp-delhi-horizontal-volume-controls .ytp-volume-area,
-  .ytp-delhi-modern :is(.ytp-prev-button, .ytp-chrome-controls .ytp-next-button, .ytp-time-wrapper, .ytp-chrome-controls .ytp-right-controls, .ytp-chapter-title), /* кнопки плеера */
-  .ytp-delhi-modern .ytp-chrome-controls .ytp-play-button {
+  .ytdVolumeControlsBackgroundScrimExpandedHoverState::after {
     background: transparent !important;
+  }
+
+  .ytp-chrome-controls { /* кнопки плеера */
+    --yt-sys-color-baseline--overlay-background-medium-light: transparent !important; /* controls player */
+    --yt-sys-color-baseline--overlay-button-secondary: transparent !important; /* hover */
+    --yt-sys-color-baseline--overlay-tonal-hover: transparent !important; /* active */
   }
   
   .ytp-delhi-modern .ytp-chrome-controls .ytp-mute-button .ytp-volume-icon svg,
@@ -384,8 +373,8 @@
     left: 0;
     position: absolute;
     background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.40) 40%, rgba(0, 0, 0, 0.20) 70%, rgba(0, 0, 0, 0) 100%);
-    -webkit-transition: opacity .25s cubic-bezier(0,0,.2,1);
-    transition: opacity .25s cubic-bezier(0,0,.2,1);
+    -webkit-transition: opacity 0.25s cubic-bezier(0, 0, 0.2, 1);
+    transition: opacity 0.25s cubic-bezier(0, 0, 0.2, 1);
     pointer-events: none;
 }
   
@@ -409,7 +398,7 @@
 
   .ytp-delhi-modern.ytp-fullscreen-grid-peeking .ytp-overlays-container { display: none !important; } /* скрывает новую панель с лайками */
 
-  .contribYtLightShapeStaticRimLightTonal { /* прозрачные кнопки */
+  .contribYtLightShapeStaticRimLightTonal { /* прозрачные кнопки лайков */
     border-radius: 0px !important;
     &::before,
     .contribYtLightShapeStaticWashLightTonal {
@@ -431,7 +420,7 @@
   }
   
   @media (max-height: 723px), (max-width: 552px) {
-    ytd-shorts-player-controls[shorts-modern-controls-enabled]:not([is-ads-overlay]) #fullscreen-button-shape.ytd-shorts-player-controls {
+    .ytdShortsPlayerControlsHost:not(.ytdShortsPlayerControlsIsAdsOverlay) .ytdShortsPlayerControlsFullscreenButtonShape {
       display: block !important;
     }
   }
