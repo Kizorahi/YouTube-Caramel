@@ -2,7 +2,7 @@
 @name         YouTube Caramel
 @namespace    ytc_rb
 @author       royalblue
-@version      1.4.3
+@version      1.4.4
 @license      ISC
 @homepageURL https://userstyles.world/style/24582
 @supportURL https://t.me/glass_of_rain_water
@@ -26,12 +26,13 @@
     --t3e41d7b17b187f69: var(--ytc-accent-background) !important;
     --t518e925f61bdcb91: var(--ytc-accent-background) !important;
     --yt-live-chat-vem-background-color: var(--ytc-accent-background) !important;
-
-    scrollbar-color: #ffffff50 var(--ytc-background);
+    
+    scrollbar-color: #ffffff50 var(--ytc-background) !important;
+    &::-webkit-scrollbar-track { background: var(--ytc-background) !important; }
+    &::-webkit-scrollbar-thumb {
+      &, &:hover { background: #ffffff50 !important; }
+    }
   }
-
-  html[dark]::-webkit-scrollbar-track { background: var(--ytc-background) !important; }
-  :is(html[dark]::-webkit-scrollbar-thumb, html::-webkit-scrollbar-thumb:hover) { background: #ffffff50 !important; }
 
   html[dark] h2, html[dark] #copyright { color: var(--ytc-col-text-primary) !important; }
   #frosted-glass,
@@ -39,12 +40,7 @@
     background: transparent !important;
   }
   
-  #secondary.ytd-watch-flexy { --ytd-watch-flexy-sidebar-width: 410px !important; }
-  ytd-watch-flexy[split-scroll]:not([fixed-panel-watch-next])[fixed-panel-expanded] #secondary-inner.ytd-watch-flexy { --ytd-watch-flexy-sidebar-width: 410px !important; }
-  ytd-watch-flexy[split-scroll]:not([fixed-panel-watch-next])[fixed-panel-expanded][fixed-panel-expanded] #columns.ytd-watch-flexy::after { --ytd-watch-flexy-sidebar-width: 410px !important; }
-
   #progress.yt-page-navigation-progress { background: linear-gradient(to right, var(--ytc-accent-magenta), var(--ytc-accent-cyan)) !important; }
-  
 
   #secondary.ytd-watch-flexy:has(#playlist[collapsed]) { width: 410px !important; }
   #secondary.ytd-watch-flexy .ytLockupViewModelContentImage { width: 185px !important; }
@@ -76,9 +72,7 @@
     #guide-skeleton,
     .ytContextualSheetLayoutHost,
     ytd-menu-popup-renderer,
-   
     #header.ytd-engagement-panel-title-header-renderer,
-   
     tp-yt-paper-listbox.yt-dropdown-menu,
     yt-confirm-dialog-renderer[dialog],
     #home-page-skeleton .skeleton-bg-color,
@@ -160,17 +154,15 @@
     flex-direction: column-reverse !important;
     margin-top: -4px !important;
     display: flex !important;
-  }
-  #owner {
-    margin-top: 20px !important;
-    padding-right: 12px !important;
-  }
-  ytd-watch-metadata[action-buttons-update-owner-width] #owner.ytd-watch-metadata {
-    width: 100% !important;
-    justify-content: space-between !important;
-  }
-  ytd-watch-metadata[actions-on-separate-line] #actions.ytd-watch-metadata ytd-menu-renderer.ytd-watch-metadata {
-    justify-content: end !important;
+    #actions.ytd-watch-metadata ytd-menu-renderer.ytd-watch-metadata { justify-content: end !important; }
+    #owner {
+      margin-top: 20px !important;
+      padding-right: 12px !important;
+      &.ytd-watch-metadata {
+        width: 100% !important;
+        justify-content: space-between !important;
+      }
+    }
   }
   
   yt-dropdown-menu { --paper-menu-button-content-border-radius: 0px !important; }
@@ -254,6 +246,7 @@
   .ytVideoAttributeViewModelImageLarge, .ytVideoAttributeViewModelHeroSection,
   span.yt-core-attributed-string--link-inherit-color span.yt-core-attributed-string--highlight-text-decorator,
   .ytp-tooltip.ytp-preview, .ytp-tooltip-bg,
+  .ytp-tooltip.ytp-tooltip-progress-bar-style .ytp-tooltip-progress-bar-pill,
   ytd-engagement-panel-section-list-renderer, #thumbnail.ytd-macro-markers-list-item-renderer,
   .yt-spec-button-shape-next--size-s,
   ytd-live-chat-frame[round-background] #show-hide-button.ytd-live-chat-frame > ytd-button-renderer.ytd-live-chat-frame,
@@ -311,7 +304,7 @@
       bottom: -5px;
       left: 0;
       width: 100%;
-      height: 2.14px;
+      height: 4px;
       background: linear-gradient(to right, var(--ytc-accent-magenta), var(--ytc-accent-cyan));
       pointer-events: none;
       z-index: 999;
@@ -324,18 +317,14 @@
   .ytdShortsPlayerControlsPlayPauseButtonShape:hover::after,
   .ytdShortsPlayerControlsMenuButton:hover::after,
   .ytdShortsPlayerControlsFullscreenButtonShape:hover::after,
-  .ytdVolumeControlsBackgroundScrimExpandedHoverState::after,
-  :is(.ytp-delhi-modern .ytp-play-button, .ytp-delhi-modern.ytp-big-mode .ytp-play-button):hover::after,
-  .ytp-delhi-modern :is(.ytp-prev-button, .ytp-next-button,
-  .ytp-chapter-title):hover::after,
-  .ytp-delhi-modern .ytp-chrome-controls .ytp-right-controls .ytp-button:hover::before, .ytp-delhi-modern .ytp-chapter-title.ytp-button:active::after,
-  .ytp-delhi-modern.ytp-delhi-horizontal-volume-controls .ytp-volume-area::after,
-  .ytp-delhi-modern .ytp-time-wrapper:not(.ytp-miniplayer-ui *)::after,
-  .ytp-delhi-modern.ytp-delhi-modern-compact-controls .ytp-chrome-controls .ytp-play-button,
-  .ytp-delhi-modern.ytp-delhi-horizontal-volume-controls .ytp-volume-area,
-  .ytp-delhi-modern :is(.ytp-prev-button, .ytp-chrome-controls .ytp-next-button, .ytp-time-wrapper, .ytp-chrome-controls .ytp-right-controls, .ytp-chapter-title),
-  .ytp-delhi-modern .ytp-chrome-controls .ytp-play-button {
+  .ytdVolumeControlsBackgroundScrimExpandedHoverState::after {
     background: transparent !important;
+  }
+
+  .ytp-chrome-controls {
+    --yt-sys-color-baseline--overlay-background-medium-light: transparent !important;
+    --yt-sys-color-baseline--overlay-button-secondary: transparent !important;
+    --yt-sys-color-baseline--overlay-tonal-hover: transparent !important;
   }
   
   .ytp-delhi-modern .ytp-chrome-controls .ytp-mute-button .ytp-volume-icon svg,
@@ -394,8 +383,8 @@
     left: 0;
     position: absolute;
     background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.40) 40%, rgba(0, 0, 0, 0.20) 70%, rgba(0, 0, 0, 0) 100%);
-    -webkit-transition: opacity .25s cubic-bezier(0,0,.2,1);
-    transition: opacity .25s cubic-bezier(0,0,.2,1);
+    -webkit-transition: opacity 0.25s cubic-bezier(0, 0, 0.2, 1);
+    transition: opacity 0.25s cubic-bezier(0, 0, 0.2, 1);
     pointer-events: none;
 }
   
@@ -441,7 +430,7 @@
   }
   
   @media (max-height: 723px), (max-width: 552px) {
-    ytd-shorts-player-controls[shorts-modern-controls-enabled]:not([is-ads-overlay]) #fullscreen-button-shape.ytd-shorts-player-controls {
+    .ytdShortsPlayerControlsHost:not(.ytdShortsPlayerControlsIsAdsOverlay) .ytdShortsPlayerControlsFullscreenButtonShape {
       display: block !important;
     }
   }
