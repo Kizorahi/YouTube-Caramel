@@ -2,7 +2,7 @@
 @name         YouTube Caramel
 @namespace    ytc_rb
 @author       royalblue
-@version      1.4.4
+@version      1.4.5
 @license      ISC
 @homepageURL https://userstyles.world/style/24582
 @supportURL https://t.me/glass_of_rain_water
@@ -40,10 +40,7 @@
     background: transparent !important;
   }
   
-  #progress.yt-page-navigation-progress { background: linear-gradient(to right, var(--ytc-accent-magenta), var(--ytc-accent-cyan)) !important; }
-
-  #secondary.ytd-watch-flexy:has(#playlist[collapsed]) { width: 410px !important; }
-  #secondary.ytd-watch-flexy .ytLockupViewModelContentImage { width: 185px !important; }
+  html[dark] #progress.yt-page-navigation-progress { background: linear-gradient(to right, var(--ytc-accent-magenta), var(--ytc-accent-cyan)) !important; }
 
  
   html[dark] :is(
@@ -149,6 +146,10 @@
 
 @-moz-document url-prefix("https://www.youtube.com/") {
   * { backdrop-filter: none !important; }
+
+  .ytd-watch-flexy { --ytd-watch-flexy-sidebar-width: 410px !important; }
+  #secondary.ytd-watch-flexy:has(#playlist[collapsed]) { width: 410px !important; }
+  #secondary.ytd-watch-flexy .ytLockupViewModelContentImage { width: 185px !important; }
 
   #top-row {
     flex-direction: column-reverse !important;
@@ -305,7 +306,7 @@
       left: 0;
       width: 100%;
       height: 4px;
-      background: linear-gradient(to right, var(--ytc-accent-magenta), var(--ytc-accent-cyan));
+      background: linear-gradient(to right, var(--ytc-accent-magenta, #606060b3), var(--ytc-accent-cyan, #606060b3));
       pointer-events: none;
       z-index: 999;
     }
@@ -391,15 +392,15 @@
  
   .ytp-delhi-modern :is(.ytp-chrome-bottom,  .ytp-chrome-controls),
   .ytp-delhi-modern.ytp-big-mode:not(.ytp-xsmall-width-mode) :is(.ytp-chrome-bottom, .ytp-right-controls .ytp-right-controls-right, .ytp-right-controls .ytp-right-controls-left) {
-    height: 52px !important;
-    line-height: 52px !important;
+    height: 50px !important;
+    line-height: 50px !important;
   }
   
   .ytp-delhi-modern.ytp-big-mode:not(.ytp-xsmall-width-mode) .ytp-progress-bar-container,
   .ytp-delhi-modern:not(.ytp-player-minimized) .ytp-progress-bar-container {
-    bottom: 52px !important;
+    bottom: 50px !important;
   }
-  .ytp-chrome-controls { margin: -0.25% 0 !important; }
+  .ytp-chrome-controls { margin: -0.27% 0 !important; }
   
   .ytp-fullscreen-grid-expand-button { display: none !important; }
   .ytp-fullscreen-grid-stills-container {
