@@ -2,7 +2,7 @@
 @name         YouTube Caramel
 @namespace    ytc_rb
 @author       royalblue
-@version      1.4.5
+@version      1.4.6
 @license      ISC
 @homepageURL https://userstyles.world/style/24582
 @supportURL https://t.me/glass_of_rain_water
@@ -71,6 +71,7 @@
     ytd-menu-popup-renderer,
     #header.ytd-engagement-panel-title-header-renderer,
     tp-yt-paper-listbox.yt-dropdown-menu,
+    #dismissible.ytd-inline-survey-renderer,
     yt-confirm-dialog-renderer[dialog],
     #home-page-skeleton .skeleton-bg-color,
     .watch-skeleton .skeleton-bg-color,
@@ -190,7 +191,7 @@
   .ytSpecTouchFeedbackShapeStroke, .ytSpecTouchFeedbackShapeFill,
   ytd-post-renderer[rounded-container],
   ytd-thumbnail[size="large"] a.ytd-thumbnail, ytd-thumbnail[size="large"]::before,
-  #home-page-skeleton .rich-thumbnail,
+  #home-page-skeleton .rich-thumbnail, #home-page-skeleton .rich-thumbnail::before,
   .rich-thumbnail.ytd-ghost-grid-renderer,
   .ytdGhostGridViewModelThumbnail,
   .ytNotificationMultiActionRendererHost,
@@ -271,6 +272,7 @@
   #statement-banner-content.ytd-statement-banner-renderer, #tile-container.ytd-statement-banner-renderer,
   .ytwTopLandscapeImageLayoutViewModelHostImageHoverOverlayContainer,
   .ytwCompactLandscapeNoButtonLayoutViewModelHostImageHoverOverlayContainer,
+  .ytwTextImageNoButtonLayoutViewModelHostImageHoverOverlayContainer,
   #error-screen.ytd-watch-flexy,
   .ytMiniGameCardViewModelPortraitCard .ytMiniGameCardViewModelCinematicBackgroundWrapper,
   .ytMiniAppContainerViewModelContentDesktopContent,
@@ -302,10 +304,10 @@
     &::before {
       content: "";
       position: absolute;
-      bottom: -5px;
+      bottom: -7px;
       left: 0;
       width: 100%;
-      height: 4px;
+      height: 3px;
       background: linear-gradient(to right, var(--ytc-accent-magenta, #606060b3), var(--ytc-accent-cyan, #606060b3));
       pointer-events: none;
       z-index: 999;

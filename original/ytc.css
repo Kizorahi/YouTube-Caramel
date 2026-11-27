@@ -14,7 +14,7 @@
 
     --yt-spec-base-background: var(--ytc-accent-background) !important; /* Фон шапки профиля  вроде есть, но хз что это */
     --t3e41d7b17b187f69: var(--ytc-accent-background) !important;
-    --t518e925f61bdcb91: var(--ytc-accent-background) !important; /* фон "в этом видео" эпизодов */
+    --t518e925f61bdcb91: var(--ytc-accent-background) !important; /* фон "в этом видео" эпизодо 25 nov */
     --yt-live-chat-vem-background-color: var(--ytc-accent-background) !important; /* подписчики отправлять сообщения в чат */
     
     scrollbar-color: #ffffff50 var(--ytc-background) !important;
@@ -61,6 +61,7 @@
     ytd-menu-popup-renderer, /* контекстное меню шортсов */
     #header.ytd-engagement-panel-title-header-renderer, /* модаль */
     tp-yt-paper-listbox.yt-dropdown-menu, /* контекстное меню сортировки комментариев */
+    #dismissible.ytd-inline-survey-renderer, /* Как бы вы оценили это видео */
     yt-confirm-dialog-renderer[dialog], /* модаль авторы трека в описании */
     #home-page-skeleton .skeleton-bg-color, /* предзагрузка миниатюр */
     .watch-skeleton .skeleton-bg-color, /* предзагрузка текста под видео */
@@ -180,7 +181,7 @@
   .ytSpecTouchFeedbackShapeStroke, .ytSpecTouchFeedbackShapeFill, /* active карточки видео */
   ytd-post-renderer[rounded-container], /* новые записи в поиске */
   ytd-thumbnail[size="large"] a.ytd-thumbnail, ytd-thumbnail[size="large"]::before, /* миниатюры на канале */
-  #home-page-skeleton .rich-thumbnail, /* миниатюры предзагрузка */
+  #home-page-skeleton .rich-thumbnail, #home-page-skeleton .rich-thumbnail::before, /* миниатюры предзагрузка */
   .rich-thumbnail.ytd-ghost-grid-renderer, /* миниатюры на главной (подгрузка) */
   .ytdGhostGridViewModelThumbnail, /* миниатюры предзагрузки обычно вкладки соседние */
   .ytNotificationMultiActionRendererHost, /* видео скрыто */
@@ -261,6 +262,7 @@
   #statement-banner-content.ytd-statement-banner-renderer, #tile-container.ytd-statement-banner-renderer, /* банер рекламы на главной + изображение внутри */
   .ytwTopLandscapeImageLayoutViewModelHostImageHoverOverlayContainer, /* миниатюра рекламы на главной */
   .ytwCompactLandscapeNoButtonLayoutViewModelHostImageHoverOverlayContainer, /* реклама в поисковой выдаче */
+  .ytwTextImageNoButtonLayoutViewModelHostImageHoverOverlayContainer, /* реклама в поисковой выдаче */
   #error-screen.ytd-watch-flexy, /* Плеер Видео нельзя смотреть в вашей стране */
   .ytMiniGameCardViewModelPortraitCard .ytMiniGameCardViewModelCinematicBackgroundWrapper, /* карточки мини игры */
   .ytMiniAppContainerViewModelContentDesktopContent, /* плеер мини игр */
@@ -292,10 +294,10 @@
     &::before {
       content: "";
       position: absolute;
-      bottom: -5px;
+      bottom: -7px;
       left: 0;
       width: 100%;
-      height: 4px;
+      height: 3px;
       background: linear-gradient(to right, var(--ytc-accent-magenta, #606060b3), var(--ytc-accent-cyan, #606060b3));
       pointer-events: none;
       z-index: 999;
