@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name         Youtube Caramel Mobile
 @namespace    ytc_rb
-@version      1.1.4
+@version      1.1.5
 @author       royalblue
 @license      ISC
 @homepageURL  https://userstyles.world/style/24650
@@ -49,7 +49,9 @@
   .enforcementMessageViewModelHost,
   .ytSpecDialogLayoutHost,
   ytm-select,
-  .ytmDrawerLayoutContainerDrawerLayout {
+  .ytmDrawerLayoutContainerDrawerLayout,
+  ytm-promo,
+  .watch-below-the-player::before, .watch-below-the-player::after {
     background: var(--ytc-accent-background) !important;
   }
   
@@ -66,7 +68,8 @@
     color: var(--ytc-accent-magenta) !important;
   }
 
-  .yt-shelf-header-layout__title, .slim-video-information-title, .promo-title, .title:not(input, .search-bar-text), ytm-reel-shelf-renderer .reel-shelf-title {
+  .yt-shelf-header-layout__title, .slim-video-information-title, .promo-title, .title:not(input, .search-bar-text), ytm-reel-shelf-renderer .reel-shelf-title,
+  .ytVideoMetadataViewModelTitle {
     color: var(--ytc-accent-magenta) !important;
   }
 
